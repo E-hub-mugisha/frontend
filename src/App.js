@@ -1,9 +1,12 @@
 // frontend/src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TalentManagement from './pages/admin/talents/TalentManagement';
 import UserManagement from './pages/admin/users/UserManagement';
 import AdminLayout from './components/admin/AdminLayout';
+import UserLayout from './components/user/UserLayout';
+import Home from './front-end/Home';
+import Contact from './front-end/Contact';
 
 function App() {
   return (
@@ -26,7 +29,8 @@ function App() {
           }
         />
         {/* Default route redirect */}
-        <Route path="/" element={<Navigate to="/admin/talents" replace />} />
+        <Route path="/" element={<UserLayout><Home /></UserLayout>} />
+        <Route path="/contact" element={<UserLayout><Contact /></UserLayout>} />
       </Routes>
     </Router>
   );

@@ -134,6 +134,15 @@ const TalentManagement = () => {
                                 <label className="form-label">Rating (0–5)</label>
                                 <input type="number" min="0" max="5" className="form-control" value={form.rating} onChange={(e) => setForm({ ...form, rating: parseInt(e.target.value) })} required />
                             </div>
+                            <div className="form-check">
+                                <input
+                                    className="form-check-input"
+                                    type="checkbox"
+                                    checked={form.featured}
+                                    onChange={(e) => setForm({ ...form, featured: e.target.checked })}
+                                />
+                                <label className="form-check-label">Featured</label>
+                            </div>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
