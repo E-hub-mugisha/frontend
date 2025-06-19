@@ -1,6 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import api from '../api'; // ✅ correct import
 
 const Home = () => {
+    const [talents, setTalents] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetchTalents();
+        fetchCategories();
+    }, []);
+
+    const fetchTalents = async () => {
+        try {
+            const res = await api.get('/talents');
+            setTalents(res.data);
+        } catch (error) {
+            console.error('Error fetching talents:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const fetchCategories = async () => {
+        try {
+            const res = await api.get('/categories');
+            setCategories(res.data);
+        } catch (err) {
+            console.error('Failed to fetch categories:', err);
+        }
+    };
     return (
         <div>
 
@@ -308,87 +337,15 @@ const Home = () => {
                     </div>
                     <div
                         className="row row-gap-4 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 align-items-center">
-
-                        <div className="col d-flex">
-                            <div className="pop-category flex-fill" data-aos="flip-left">
-                                <span><i className="ti ti-movie"></i></span>
-                                <h6 className="mb-1"><a href="#">Creative Storytelling</a></h6>
-                                <p>85 Stories</p>
+                        {categories.map((cat) => (
+                            <div className="col d-flex">
+                                <div className="pop-category flex-fill" data-aos="flip-left">
+                                    <span><i className="ti ti-movie"></i></span>
+                                    <h6 className="mb-1"><a href="#">{cat.name}</a></h6>
+                                    <p>85 Stories</p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div className="col d-flex">
-                            <div className="pop-category flex-fill" data-aos="flip-left">
-                                <span><i className="ti ti-school"></i></span>
-                                <h6 className="mb-1"><a href="#">Skill Learning</a></h6>
-                                <p>120 Courses</p>
-                            </div>
-                        </div>
-
-                        <div className="col d-flex">
-                            <div className="pop-category flex-fill" data-aos="flip-left">
-                                <span><i className="ti ti-users"></i></span>
-                                <h6 className="mb-1"><a href="#">Mentorship</a></h6>
-                                <p>45 Mentors</p>
-                            </div>
-                        </div>
-
-                        <div className="col d-flex">
-                            <div className="pop-category flex-fill" data-aos="flip-left">
-                                <span><i className="ti ti-camera-heart"></i></span>
-                                <h6 className="mb-1"><a href="#">Photography & Media</a></h6>
-                                <p>73 Profiles</p>
-                            </div>
-                        </div>
-
-                        <div className="col d-flex">
-                            <div className="pop-category flex-fill" data-aos="flip-left">
-                                <span><i className="ti ti-music"></i></span>
-                                <h6 className="mb-1"><a href="#">Music & Performance</a></h6>
-                                <p>92 Talents</p>
-                            </div>
-                        </div>
-
-                        <div className="col d-flex">
-                            <div className="pop-category flex-fill" data-aos="flip-left">
-                                <span><i className="ti ti-brush"></i></span>
-                                <h6 className="mb-1"><a href="#">Art & Design</a></h6>
-                                <p>67 Creators</p>
-                            </div>
-                        </div>
-
-                        <div className="col d-flex">
-                            <div className="pop-category flex-fill" data-aos="flip-left">
-                                <span><i className="ti ti-pencil-star"></i></span>
-                                <h6 className="mb-1"><a href="#">Writing & Content</a></h6>
-                                <p>54 Talents</p>
-                            </div>
-                        </div>
-
-                        <div className="col d-flex">
-                            <div className="pop-category flex-fill" data-aos="flip-left">
-                                <span><i className="ti ti-world"></i></span>
-                                <h6 className="mb-1"><a href="#">Tech & Innovation</a></h6>
-                                <p>88 Creators</p>
-                            </div>
-                        </div>
-
-                        <div className="col d-flex">
-                            <div className="pop-category flex-fill" data-aos="flip-left">
-                                <span><i className="ti ti-heart-handshake"></i></span>
-                                <h6 className="mb-1"><a href="#">Community Projects</a></h6>
-                                <p>35 Projects</p>
-                            </div>
-                        </div>
-
-                        <div className="col d-flex">
-                            <div className="pop-category flex-fill" data-aos="flip-left">
-                                <span><i className="ti ti-chart-bar"></i></span>
-                                <h6 className="mb-1"><a href="#">Entrepreneurship</a></h6>
-                                <p>60 Innovators</p>
-                            </div>
-                        </div>
-
+                        ))}
                     </div>
                 </div>
             </div>
@@ -397,89 +354,71 @@ const Home = () => {
             <div className="next-gen-section">
                 <div className="container">
                     <div className="section-header-two text-center" data-aos="fade-up">
-                        <h2 className="mb-2"><span className="title-bg"></span>Meet the Next Generation of talents<span
-                            className="title-bg2"></span></h2>
+                        <h2 className="mb-2">
+                            <span className="title-bg"></span>
+                            Meet the Next Generation of talents
+                            <span className="title-bg2"></span>
+                        </h2>
                         <p>Connect with the next wave of talents, guiding you with fresh perspectives</p>
                     </div>
-                    <div className="row seller-list">
-                        <div className="col-xl-3 col-lg-4 col-md-6">
-                            <div className="card" data-aos="flip-left">
-                                <div className="card-body text-center">
-                                    <span className="avatar"><a href="talent-profile.html"><img className="rounded-pill"
-                                        src="assets/img/user/profile.jpg" alt="img" height="50" width="50" /></a> <i
-                                            className="ti ti-discount-check-filled verify-icon"></i></span>
-                                    <h6 className="mb-1"><a href="talent-profile.html">Sophia Chen</a></h6>
-                                    <p>UI/UX Designer</p>
-                                    <p className="mb-0 location-text d-inline-flex align-items-center"><img
-                                        src="assets/img/flags/flag-for-rwanda.svg" alt="img" className="me-1" />Rwanda <i
-                                            className="ti ti-point-filled mx-1"></i> Total Gigs : 45</p>
-                                    <div className="d-flex gap-2 align-items-center flex-wrap mt-3 justify-content-center">
-                                        <a href="service-details.html" className="badge bg-light">Wordpress</a>
-                                        <a href="service-details.html" className="badge bg-light">Figma</a>
+
+                    {loading ? (
+                        <p className="text-center">Loading...</p>
+                    ) : (
+                        <>
+                            <div className="row seller-list">
+                                {talents.map((talent) => (
+                                    <div className="col-xl-3 col-lg-4 col-md-6" key={talent.id}>
+                                        <div className="card" data-aos="flip-left">
+                                            <div className="card-body text-center">
+                                                <span className="avatar">
+                                                    <a href="talent-profile.html">
+                                                        <img
+                                                            className="rounded-pill"
+                                                            src="assets/img/user/profile.jpg"
+                                                            alt="img"
+                                                            height="50"
+                                                            width="50"
+                                                        />
+                                                    </a>
+                                                    <i className="ti ti-discount-check-filled verify-icon"></i>
+                                                </span>
+                                                <h6 className="mb-1">
+                                                    <a href="talent-profile.html">{talent.name}</a>
+                                                </h6>
+                                                <p>{talent.skill}</p>
+                                                <p className="mb-0 location-text d-inline-flex align-items-center">
+                                                    <img
+                                                        src="assets/img/flags/flag-for-rwanda.svg"
+                                                        alt="flag"
+                                                        className="me-1"
+                                                    />
+                                                    Rwanda <i className="ti ti-point-filled mx-1"></i> Total Gigs: 45
+                                                </p>
+                                                <div className="d-flex gap-2 align-items-center flex-wrap mt-3 justify-content-center">
+                                                    <a href="service-details.html" className="badge bg-light">
+                                                        Wordpress
+                                                    </a>
+                                                    <a href="service-details.html" className="badge bg-light">
+                                                        Figma
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                ))}
                             </div>
-                        </div>
-                        <div className="col-xl-3 col-lg-4 col-md-6">
-                            <div className="card" data-aos="flip-left">
-                                <div className="card-body text-center">
-                                    <span className="avatar"><a href="talent-profile.html"><img className="rounded-pill"
-                                        src="assets/img/user/profile.jpg" alt="img" height="50" width="50" /></a><i
-                                            className="ti ti-discount-check-filled verify-icon"></i></span>
-                                    <h6 className="mb-1"><a href="talent-profile.html">Ethan Reynolds</a></h6>
-                                    <p>Software Engineer</p>
-                                    <p className="mb-0 location-text d-inline-flex align-items-center"><img
-                                        src="assets/img/flags/flag-for-rwanda.svg" alt="img" className="me-1" />Rwanda <i
-                                            className="ti ti-point-filled mx-1"></i> Total Gigs : 12</p>
-                                    <div className="d-flex gap-2 align-items-center mt-3 flex-wrap justify-content-center">
-                                        <a href="service-details.html" className="badge bg-light">AI</a>
-                                        <a href="service-details.html" className="badge bg-light">Cloud Computing</a>
-                                    </div>
-                                </div>
+
+                            <div className="text-center mt-3" data-aos="fade-up">
+                                <a href="/talents" className="btn btn-lg btn-dark">
+                                    View All Talents
+                                </a>
                             </div>
-                        </div>
-                        <div className="col-xl-3 col-lg-4 col-md-6">
-                            <div className="card" data-aos="flip-left">
-                                <div className="card-body text-center">
-                                    <span className="avatar"><a href="talent-profile.html"><img className="rounded-pill"
-                                        src="assets/img/user/profile.jpg" alt="img" height="50" width="50" /></a><i
-                                            className="ti ti-discount-check-filled verify-icon"></i></span>
-                                    <h6 className="mb-1"><a href="talent-profile.html">Isabella Martinez</a></h6>
-                                    <p>Cybersecurity Analyst</p>
-                                    <p className="mb-0 location-text d-inline-flex align-items-center"><img
-                                        src="assets/img/flags/flag-for-rwanda.svg" alt="img" className="me-1" />Rwanda <i
-                                            className="ti ti-point-filled mx-1"></i> Total Gigs : 15</p>
-                                    <div className="d-flex gap-2 align-items-center flex-wrap mt-3 justify-content-center">
-                                        <a href="service-details.html" className="badge bg-light">Ethical Hacking</a>
-                                        <a href="service-details.html" className="badge bg-light">ML</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-3 col-lg-4 col-md-6">
-                            <div className="card" data-aos="flip-left">
-                                <div className="card-body text-center">
-                                    <span className="avatar"><a href="talent-profile.html"><img className="rounded-pill"
-                                        src="assets/img/user/profile.jpg" alt="img" height="50" width="50" /></a><i
-                                            className="ti ti-discount-check-filled verify-icon"></i></span>
-                                    <h6 className="mb-1"><a href="talent-profile.html">Liam Carter</a></h6>
-                                    <p>FinTech Innovator</p>
-                                    <p className="mb-0 location-text d-inline-flex align-items-center"><img
-                                        src="assets/img/flags/flag-for-rwanda.svg" alt="img" className="me-1" />Rwanda <i
-                                            className="ti ti-point-filled mx-1"></i> Total Gigs : 22</p>
-                                    <div className="d-flex gap-2 align-items-center flex-wrap mt-3 justify-content-center">
-                                        <a href="service-details.html" className="badge bg-light">Blockchain</a>
-                                        <a href="service-details.html" className="badge bg-light">Banking</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="text-center mt-3" data-aos="fade-up">
-                            <a href="talents.html" className="btn btn-lg btn-dark">View All Talents</a>
-                        </div>
-                    </div>
+                        </>
+                    )}
                 </div>
             </div>
+
 
             <div className="how-it-works">
                 <div className="container">

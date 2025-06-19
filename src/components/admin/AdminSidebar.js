@@ -22,6 +22,14 @@ const AdminSidebar = () => {
                         User Management
                     </NavLink>
                 </li>
+                <li className="nav-item">
+                    <NavLink
+                        className={({ isActive }) => "nav-link text-white" + (isActive ? " active" : "")}
+                        to="/admin/categories"
+                    >
+                        Category Management
+                    </NavLink>
+                </li>
                 {/* Add more links here */}
             </ul>
         </div>

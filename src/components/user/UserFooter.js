@@ -12,7 +12,7 @@ export const UserFooter = () => {
 						<div class="col-lg-3 col-sm-6 footer-links">
 							<h6>About Future Connect</h6>
 							<ul>
-								<li><a href="about-us.html"><i class="ti ti-chevron-right me-2"></i>About Us</a></li>
+								<li><a href="/about"><i class="ti ti-chevron-right me-2"></i>About Us</a></li>
 								<li><a href="how-it-works.html"><i class="ti ti-chevron-right me-2"></i>How It Works</a>
 								</li>
 								<li><a href="talent-showcase.html"><i class="ti ti-chevron-right me-2"></i>Talent
@@ -80,7 +80,7 @@ export const UserFooter = () => {
 			<div class="footer-bottom-two">
 				<div class="container">
 					<div class="mb-3 d-flex align-items-center justify-content-between flex-wrap gap-3">
-						<a href="index.html" class="footer-logo">
+						<a href="/" class="footer-logo">
 							<img src="assets/img/logo.svg" alt="Future Connect Logo"/>
 						</a>
 						<div class="social-links">

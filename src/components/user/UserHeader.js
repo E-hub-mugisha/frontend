@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import api from '../../api';
 
 export const UserHeader = () => {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
+    const fetchCategories = async () => {
+        try {
+            const response = await api.get('/categories'); // Adjust the endpoint as necessary
+            setCategories(response.data);
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    };
     return (
         <div>
             <header class="header">
@@ -37,26 +52,18 @@ export const UserHeader = () => {
                                 <a id="menu_close" class="menu-close" href="#"> <i class="fas fa-times"></i></a>
                             </div>
                             <ul class="main-nav navbar-nav">
-                                <li><a href="index.html" class="nav-link active">Home</a></li>
+                                <li><a href="/" class="nav-link active">Home</a></li>
 
                                 <li class="has-submenu">
                                     <a href="#">Talents <i class="fas fa-chevron-down"></i></a>
                                     <ul class="submenu">
-                                        <li><a href="talents.html">All Talents</a></li>
+                                        <li><a href="/talents">All Talents</a></li>
                                         <li><a href="register-talent.html">Register as Talent</a></li>
                                         <li class="has-submenu">
-                                            <a href="#">Talent Categories <i class="fas fa-chevron-right"></i></a>
+                                            <a href="#">Talent Categories </a>
                                             <ul class="submenu">
-                                                <li><a href="talents.html?category=music">Music & Performance</a></li>
-                                                <li><a href="talents.html?category=tech">Tech & Coding</a></li>
-                                                <li><a href="talents.html?category=art">Art & Design</a></li>
-                                                <li><a href="talents.html?category=entrepreneurship">Entrepreneurship</a>
-                                                </li>
-                                                <li><a href="talents.html?category=education">Education & Research</a></li>
-                                                <li><a href="talents.html?category=health">Health & Wellness</a></li>
-                                                <li><a href="talents.html?category=sports">Sports & Fitness</a></li>
-                                                <li><a href="talents.html?category=community">Community Leadership</a></li>
-                                                <li><a href="talents.html?category=life">Personal Growth</a></li>
+                                                {categories.map((cat) => (<li><a href="talents.html?category=music">{cat.name}</a></li>
+                                                ))}
                                             </ul>
                                         </li>
                                     </ul>
@@ -72,7 +79,7 @@ export const UserHeader = () => {
                                         <li><a href="stories.html">All Stories</a></li>
                                         <li><a href="upload-story.html">Upload Story</a></li>
                                         <li class="has-submenu">
-                                            <a href="#">Talent Categories <i class="fas fa-chevron-right"></i></a>
+                                            <a href="#">Talent Categories </a>
                                             <ul class="submenu">
                                                 <li><a href="stories.html?category=music">Music & Performance</a></li>
                                                 <li><a href="stories.html?category=tech">Tech & Coding</a></li>
