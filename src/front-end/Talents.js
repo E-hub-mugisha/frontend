@@ -9,7 +9,7 @@ const Talents = () => {
         const fetchTalents = async () => {
             try {
                 const response = await api.get('/talents'); // Adjust the endpoint as necessary
-                setTalents(response.data);
+                setTalents(response.data.talents || []); // Ensure talents is an array
             } catch (error) {
                 console.error('Error fetching talents:', error);
             } finally {

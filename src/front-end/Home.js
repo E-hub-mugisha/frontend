@@ -4,17 +4,19 @@ import api from '../api'; // ✅ correct import
 const Home = () => {
     const [talents, setTalents] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [skills, setSkills] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchTalents();
         fetchCategories();
+        fetchSkills();
     }, []);
 
     const fetchTalents = async () => {
         try {
             const res = await api.get('/talents');
-            setTalents(res.data);
+            setTalents(res.data.talents);
         } catch (error) {
             console.error('Error fetching talents:', error);
         } finally {
@@ -28,6 +30,15 @@ const Home = () => {
             setCategories(res.data);
         } catch (err) {
             console.error('Failed to fetch categories:', err);
+        }
+    };
+
+    const fetchSkills = async () => {
+        try {
+        const res = await api.get('/skills');
+        setSkills(res.data.skills || []); // Ensure skills is an array
+        } catch (err) {
+            console.error('Failed to fetch skills:', err);
         }
     };
     return (
@@ -372,7 +383,7 @@ const Home = () => {
                                         <div className="card" data-aos="flip-left">
                                             <div className="card-body text-center">
                                                 <span className="avatar">
-                                                    <a href="talent-profile.html">
+                                                    <a href={`/talent/${talent.id}`}>
                                                         <img
                                                             className="rounded-pill"
                                                             src="assets/img/user/profile.jpg"
@@ -384,9 +395,9 @@ const Home = () => {
                                                     <i className="ti ti-discount-check-filled verify-icon"></i>
                                                 </span>
                                                 <h6 className="mb-1">
-                                                    <a href="talent-profile.html">{talent.name}</a>
+                                                    <a href={`/talent/${talent.id}`}>{talent.name}</a>
                                                 </h6>
-                                                <p>{talent.skill}</p>
+                                                <p>{talent.category ? talent.category.name : "Uncategorized"}</p>
                                                 <p className="mb-0 location-text d-inline-flex align-items-center">
                                                     <img
                                                         src="assets/img/flags/flag-for-rwanda.svg"
@@ -566,229 +577,74 @@ const Home = () => {
 
                         <div className="tab-pane fade show active" id="allservices" role="tabpanel">
                             <div className="row">
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/home/service-01.jpg" className="img-fluid"
-                                                            alt="Gigs" />
-                                                    </a>
+                                {skills.map(skill => (
+                                    <div className="col-xl-4 col-md-6">
+                                        <div className="gigs-grid">
+                                            <div className="gigs-img">
+                                                <div className="img-slider owl-carousel">
+                                                    <div className="slide-images">
+                                                        <a href={`/talent/skills/${skill.id}`}>
+                                                            <img src="assets/img/home/service-01.jpg" className="img-fluid"
+                                                                alt="Gigs" />
+                                                        </a>
+                                                    </div>
+                                                    
                                                 </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-06.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
+                                                <div className="card-overlay-badge">
+                                                    <a href="service.html"><span className="badge bg-warning"><i
+                                                        className="feather-star"></i>Featured</span></a>
+                                                    <a href="service.html"><span className="badge bg-danger"><i
+                                                        className="fa-solid fa-meteor"></i>{skill.level}</span></a>
                                                 </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-07.jpg" className="img-fluid" alt="Gigs" />
+                                                <div className="fav-selection">
+                                                    <a href="javascript:void(0);">
+                                                        <i className="feather-video"></i>
+                                                    </a>
+                                                    <a href="javascript:void(0);" className="fav-icon">
+                                                        <i className="feather-heart"></i>
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a href="javascript:void(0);">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Programming & Tech
-                                                    </a>
-                                                    <span className="ms-2">+1</span>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>4.8 (360 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        Virtual assistants (VAs) Provide Administrative Support
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Adrian Silvia</a></h6>
-                                                        <p className="mb-0">Newyork, USA</p>
+                                            <div className="gigs-content">
+                                                <div className="gigs-info">
+                                                    <div>
+                                                        <a href={`/talent/skills/${skill.id}`} className="badge bg-light">
+                                                            {skill.category ? skill.category.name : "Uncategorized"}
+                                                        </a>
+                                                        <span className="ms-2">+1</span>
+                                                    </div>
+                                                    <div className="star-rate">
+                                                        <span><i className="fa-solid fa-star"></i>4.8 (360 Reviews)</span>
                                                     </div>
                                                 </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$645</h6>
-                                                    <span>Delivery in 1 day</span>
+                                                <div className="gigs-title">
+                                                    <h5>
+                                                        <a href={`/talent/skills/${skill.id}`}>
+                                                            {skill.name}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+
+                                                <div className="gigs-card-footer">
+                                                    <div className="d-flex align-items-center gigs-left-text">
+                                                        <a href="talent-profile.html"
+                                                            className="avatar avatar-sm flex-shrink-0"><img
+                                                                src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
+                                                                alt="img" /></a>
+                                                        <div className="ms-2">
+                                                            <h6 className="mb-0"><a href="#">{skill.talent ? skill.talent.name : "Author"}</a></h6>
+                                                            <p className="mb-0">Newyork, USA</p>
+                                                        </div>
+                                                    </div>
+                                                    <div className="text-end">
+                                                        <h6 className="mb-1">$645</h6>
+                                                        <span>Delivery in 1 day</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/home/service-02.jpg" className="img-fluid"
-                                                            alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-08.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-09.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a href="javascript:void(0);">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Programming & Tech
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>5.0 (40 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        Offer services for Events, Portraits, Product Shoots
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Sebastian Vettal</a></h6>
-                                                        <p className="mb-0">Las Vegas, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$830</h6>
-                                                    <span>Delivery in 4 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/home/service-03.jpg" className="img-fluid"
-                                                            alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-10.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-11.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a href="javascript:void(0);">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Programming & Tech
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>5.0 (36 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        Record Scripts for Advertisements, Audiobooks, Videos, and More.
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Alex Revaria</a></h6>
-                                                        <p className="mb-0">California, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$550</h6>
-                                                    <span>Delivery in 2 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
 
