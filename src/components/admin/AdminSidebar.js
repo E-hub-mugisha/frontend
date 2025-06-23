@@ -322,8 +322,8 @@ const AdminSidebar = () => {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="seller-notifications.html">
-                                            <i class="ti ti-bell me-2"></i> <span>Notifications </span>
+                                        <a href="/admin/announcements">
+                                            <i class="ti ti-bell me-2"></i> <span>Announcements </span>
                                         </a>
                                     </li>
                                     <li>

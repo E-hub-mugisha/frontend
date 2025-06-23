@@ -18,6 +18,9 @@ import StoryDetail from './pages/admin/story/StoryDetail';
 import SkillManagement from './pages/admin/skills/SkillManagement';
 import SkillDetail from './pages/admin/skills/SkillDetail';
 import TalentSkillDetail from './front-end/TalentSkillDetail';
+import RegisterAsTalent from './front-end/RegisterAsTalent';
+import Announcement from './front-end/Announcement';
+import AnnouncementManagement from './pages/admin/announcement/AnnouncementManagement';
 
 function App() {
   return (
@@ -26,10 +29,11 @@ function App() {
         <Route path="/admin/dashboard" element={<AdminLayout><DashboardManagement /></AdminLayout>} />
         <Route path="/admin/talents" element={<AdminLayout><TalentManagement /></AdminLayout>} />
         <Route path="/admin/stories" element={<AdminLayout><StoryManagement /></AdminLayout>} />
-        <Route path="/admin/stories/create" element={<AdminLayout><StoryCreateEditForm/></AdminLayout>} />
-        <Route path="/admin/stories/:id/edit" element={<AdminLayout><StoryCreateEditForm/></AdminLayout>} />
-        <Route path="/admin/stories/:id" element={<AdminLayout><StoryDetail/></AdminLayout>} />
-        <Route path="/admin/skills" element={<AdminLayout><SkillManagement /></AdminLayout>}/>
+        <Route path="/admin/stories/create" element={<AdminLayout><StoryCreateEditForm /></AdminLayout>} />
+        <Route path="/admin/stories/:id/edit" element={<AdminLayout><StoryCreateEditForm /></AdminLayout>} />
+        <Route path="/admin/stories/:id" element={<AdminLayout><StoryDetail /></AdminLayout>} />
+        <Route path="/admin/skills" element={<AdminLayout><SkillManagement /></AdminLayout>} />
+        <Route path="/admin/announcements" element={<AdminLayout><AnnouncementManagement/></AdminLayout>} />
         <Route
           path="/admin/skills/:id"
           element={
@@ -60,7 +64,9 @@ function App() {
         <Route path="/about" element={<UserLayout><About /></UserLayout>} />
         <Route path="/talents" element={<UserLayout><Talents /></UserLayout>} />
         <Route path="/talent/:id" element={<UserLayout><TalentProfile /></UserLayout>} />
-        <Route path="/talent/skills/:id" element={<UserLayout><TalentSkillDetail/></UserLayout>} />
+        <Route path="/talent/skills/:id" element={<UserLayout><TalentSkillDetail /></UserLayout>} />
+        <Route path="/register_as_talent" element={<UserLayout><RegisterAsTalent/></UserLayout>} />
+        <Route path="/announcements" element={<UserLayout><Announcement/></UserLayout>} />
       </Routes>
     </Router>
   );

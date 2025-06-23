@@ -58,7 +58,7 @@ export const UserHeader = () => {
                                     <a href="#">Talents <i class="fas fa-chevron-down"></i></a>
                                     <ul class="submenu">
                                         <li><a href="/talents">All Talents</a></li>
-                                        <li><a href="register-talent.html">Register as Talent</a></li>
+                                        <li><a href="/register_as_talent">Register as Talent</a></li>
                                         <li class="has-submenu">
                                             <a href="#">Talent Categories </a>
                                             <ul class="submenu">
@@ -70,7 +70,7 @@ export const UserHeader = () => {
                                 </li>
 
                                 <li>
-                                    <a href="announcements.html">Announcements</a>
+                                    <a href="/announcements">Announcements</a>
                                 </li>
 
                                 <li class="has-submenu">
