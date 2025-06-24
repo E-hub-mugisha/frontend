@@ -62,7 +62,8 @@ const TalentProfile = () => {
                         <div class="col-lg-8">
 
                             <div class="breadcrumb-bar breadcrumb-bar-info breadcrumb-info text-start pt-0 bg-white">
-                                <a href="#" class="badge bg-light mb-4 text-dark">
+                                <a role="button"
+                                    tabIndex="0" class="badge bg-light mb-4 text-dark">
                                     {" "}
                                     {talent.category ? talent.category.name : "Uncategorized"}
                                 </a><br />
@@ -163,32 +164,37 @@ const TalentProfile = () => {
                                 <div class="listing-slider">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li class="nav-item" role="presentation">
-                                            <a href="#" class="nav-link active" data-bs-toggle="tab"
-                                                data-bs-target="#about_me" aria-selected="false" role="tab" tabindex="-1">
+                                            <a role="button"
+                                                tabIndex="0" class="nav-link active" data-bs-toggle="tab"
+                                                data-bs-target="#about_me" aria-selected="false" tabindex="-1">
                                                 About Me
                                             </a>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <a href="#" class="nav-link" data-bs-toggle="tab"
-                                                data-bs-target="#my_skills" aria-selected="false" role="tab" tabindex="-1">
+                                            <a role="button"
+                                                tabIndex="0" class="nav-link" data-bs-toggle="tab"
+                                                data-bs-target="#my_skills" aria-selected="false" tabindex="-1">
                                                 My Skills & Courses
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="nav-link" data-bs-toggle="tab"
-                                                data-bs-target="#faq" aria-selected="false" role="tab" tabindex="-1">
+                                            <a role="button"
+                                                tabIndex="0" class="nav-link" data-bs-toggle="tab"
+                                                data-bs-target="#faq" aria-selected="false" tabindex="-1">
                                                 FAQ
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="nav-link" data-bs-toggle="tab"
-                                                data-bs-target="#my_stories" aria-selected="false" role="tab" tabindex="-1">
+                                            <a role="button"
+                                                tabIndex="0" class="nav-link" data-bs-toggle="tab"
+                                                data-bs-target="#my_stories" aria-selected="false" tabindex="-1">
                                                 My Stories
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="nav-link" data-bs-toggle="tab"
-                                                data-bs-target="#review" aria-selected="false" role="tab" tabindex="-1">
+                                            <a role="button"
+                                                tabIndex="0" class="nav-link" data-bs-toggle="tab"
+                                                data-bs-target="#review" aria-selected="false" tabindex="-1">
                                                 Reviews
                                             </a>
                                         </li>
@@ -309,12 +315,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -397,12 +406,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -486,12 +498,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -582,12 +597,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -671,12 +689,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -767,12 +788,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -863,12 +887,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -952,12 +979,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -1159,12 +1189,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -1247,12 +1280,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -1336,12 +1372,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -1432,12 +1471,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -1521,12 +1563,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -1617,12 +1662,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -1713,12 +1761,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -1802,12 +1853,15 @@ const TalentProfile = () => {
                                                                                 Newyork</p>
                                                                         </div>
                                                                         <div class="d-flex gap-2">
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-video"></i></a>
-                                                                            <a href="#" class="text-danger"><i
-                                                                                class="feather-heart"></i></a>
-                                                                            <a href="#" class="text-muted"><i
-                                                                                class="feather-share-2"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-video"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-danger"><i
+                                                                                    class="feather-heart"></i></a>
+                                                                            <a role="button"
+                                                                                tabIndex="0" class="text-muted"><i
+                                                                                    class="feather-share-2"></i></a>
                                                                         </div>
                                                                     </div>
 
@@ -1854,7 +1908,8 @@ const TalentProfile = () => {
                                                     <div class="filters-wrap sort-categories justify-content-end">
                                                         <div class="collapse-card float-lg-end">
                                                             <div class="filter-header">
-                                                                <a href="#" class="sorts-list">
+                                                                <a role="button"
+                                                                    tabIndex="0" class="sorts-list">
                                                                     Most Recent
                                                                 </a>
                                                             </div>
@@ -1968,7 +2023,8 @@ const TalentProfile = () => {
                                                         </div>
                                                         <div class="reviewer-info">
                                                             <div class="reviewer-loc">
-                                                                <h6><a href="#">kadajsalamander</a></h6>
+                                                                <h6><a role="button"
+                                                                    tabIndex="0">kadajsalamander</a></h6>
                                                             </div>
                                                             <div class="reviewer-rating">
                                                                 <div class="star-rate">
@@ -1989,8 +2045,9 @@ const TalentProfile = () => {
                                                             I am extremely impressed with their work. From start to finish,
                                                             the freelancer was professional, efficient, and a pleasure to
                                                             work with.</p>
-                                                        <a href="#" class="reply-btn bg-light"><i
-                                                            class="feather-corner-up-left"></i>Reply</a>
+                                                        <a role="button"
+                                                            tabIndex="0" class="reply-btn bg-light"><i
+                                                                class="feather-corner-up-left"></i>Reply</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -2002,7 +2059,8 @@ const TalentProfile = () => {
                                                         </div>
                                                         <div class="reviewer-info">
                                                             <div class="reviewer-loc">
-                                                                <h6><a href="#">kadajsalamander</a></h6>
+                                                                <h6><a role="button"
+                                                                    tabIndex="0">kadajsalamander</a></h6>
                                                             </div>
                                                             <div class="reviewer-rating">
                                                                 <div class="star-rate">
@@ -2023,8 +2081,9 @@ const TalentProfile = () => {
                                                             I am extremely impressed with their work. From start to finish,
                                                             the freelancer was professional, efficient, and a pleasure to
                                                             work with.</p>
-                                                        <a href="#" class="reply-btn bg-light"><i
-                                                            class="feather-corner-up-left"></i>Reply</a>
+                                                        <a role="button"
+                                                            tabIndex="0" class="reply-btn bg-light"><i
+                                                                class="feather-corner-up-left"></i>Reply</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -2072,7 +2131,8 @@ const TalentProfile = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="#" class="btn btn-primary member-btn"> Submit a Review </a>
+                                        <a role="button"
+                                            tabIndex="0" class="btn btn-primary member-btn"> Submit a Review </a>
                                     </div>
 
                                 </div>
@@ -2124,7 +2184,8 @@ const TalentProfile = () => {
                                     </div>
                                 </div>
 
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#support_talent"
+                                <a role="button"
+                                    tabIndex="0" data-bs-toggle="modal" data-bs-target="#support_talent"
                                     class="btn btn-primary w-100 mb-0">
                                     <i class="feather-heart"></i> Support This Talent
                                 </a>
@@ -2145,7 +2206,8 @@ const TalentProfile = () => {
                                 <div class="about-me new-about">
                                     <h6>About Me</h6>
                                     <p>{talent.description}</p>
-                                    <a href="#" class="read-more">Read More</a>
+                                    <a role="button"
+                                        tabIndex="0" class="read-more">Read More</a>
                                 </div>
 
                                 <div class="member-info member-info-new">
@@ -2179,7 +2241,8 @@ const TalentProfile = () => {
                                     </div>
                                 </div>
 
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#contact_talent"
+                                <a role="button"
+                                    tabIndex="0" data-bs-toggle="modal" data-bs-target="#contact_talent"
                                     class="btn btn-outline-primary mb-0 w-100">Contact Talent</a>
                             </div>
 
@@ -2187,11 +2250,16 @@ const TalentProfile = () => {
                                 <h5 class="">Share Talent Profile</h5>
                                 <div class="social-links d-flex align-items-center breadcrumb-social pt-2">
                                     <ul>
-                                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-google"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                                        <li><a role="button"
+                                            tabIndex="0"><i class="fa-brands fa-facebook"></i></a></li>
+                                        <li><a role="button"
+                                            tabIndex="0"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                        <li><a role="button"
+                                            tabIndex="0"><i class="fa-brands fa-instagram"></i></a></li>
+                                        <li><a role="button"
+                                            tabIndex="0"><i class="fa-brands fa-google"></i></a></li>
+                                        <li><a role="button"
+                                            tabIndex="0"><i class="fa-brands fa-youtube"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -2238,10 +2306,12 @@ const TalentProfile = () => {
                                                     class="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div class="fav-selection">
-                                                <a href="#" class="video-icon"><i
-                                                    class="feather-video"></i></a>
-                                                <a href="#" class="fav-icon"><i
-                                                    class="feather-heart"></i></a>
+                                                <a role="button"
+                                                    tabIndex="0" class="video-icon"><i
+                                                        class="feather-video"></i></a>
+                                                <a role="button"
+                                                    tabIndex="0" class="fav-icon"><i
+                                                        class="feather-heart"></i></a>
                                             </div>
                                             <div class="user-thumb">
                                                 <a href="talent-profile.html"><img src="assets/img/user/user-10.jpg"
@@ -2263,8 +2333,9 @@ const TalentProfile = () => {
                                             </div>
                                             <div class="gigs-card-footer">
                                                 <div>
-                                                    <a href="#" class="share-icon"><i
-                                                        class="feather-share-2"></i></a>
+                                                    <a role="button"
+                                                        tabIndex="0" class="share-icon"><i
+                                                            class="feather-share-2"></i></a>
                                                     <span class="badge">Delivery in 1 day</span>
                                                 </div>
                                                 <h5>$600</h5>
@@ -2288,8 +2359,9 @@ const TalentProfile = () => {
                                                 </div>
                                             </div>
                                             <div class="fav-selection">
-                                                <a href="#" class="fav-icon"><i
-                                                    class="feather-heart"></i></a>
+                                                <a role="button"
+                                                    tabIndex="0" class="fav-icon"><i
+                                                        class="feather-heart"></i></a>
                                             </div>
                                             <div class="user-thumb">
                                                 <a href="talent-profile.html"><img src="assets/img/user/user-06.jpg"
@@ -2311,8 +2383,9 @@ const TalentProfile = () => {
                                             </div>
                                             <div class="gigs-card-footer">
                                                 <div>
-                                                    <a href="#" class="share-icon"><i
-                                                        class="feather-share-2"></i></a>
+                                                    <a role="button"
+                                                        tabIndex="0" class="share-icon"><i
+                                                            class="feather-share-2"></i></a>
                                                     <span class="badge">Delivery in 2 day</span>
                                                 </div>
                                                 <h5>$550</h5>
@@ -2336,8 +2409,9 @@ const TalentProfile = () => {
                                                 </div>
                                             </div>
                                             <div class="fav-selection">
-                                                <a href="#" class="fav-icon"><i
-                                                    class="feather-heart"></i></a>
+                                                <a role="button"
+                                                    tabIndex="0" class="fav-icon"><i
+                                                        class="feather-heart"></i></a>
                                             </div>
                                             <div class="user-thumb">
                                                 <a href="talent-profile.html"><img src="assets/img/user/user-03.jpg"
@@ -2359,8 +2433,9 @@ const TalentProfile = () => {
                                             </div>
                                             <div class="gigs-card-footer">
                                                 <div>
-                                                    <a href="#" class="share-icon"><i
-                                                        class="feather-share-2"></i></a>
+                                                    <a role="button"
+                                                        tabIndex="0" class="share-icon"><i
+                                                            class="feather-share-2"></i></a>
                                                     <span class="badge">Delivery in 1 day</span>
                                                 </div>
                                                 <h5>$720</h5>
@@ -2387,8 +2462,9 @@ const TalentProfile = () => {
                                                 <span class="badge bg-danger"><i class="fa-solid fa-meteor"></i>Hot</span>
                                             </div>
                                             <div class="fav-selection">
-                                                <a href="#" class="fav-icon"><i
-                                                    class="feather-heart"></i></a>
+                                                <a role="button"
+                                                    tabIndex="0" class="fav-icon"><i
+                                                        class="feather-heart"></i></a>
                                             </div>
                                             <div class="user-thumb">
                                                 <a href="talent-profile.html"><img src="assets/img/user/user-04.jpg"
@@ -2410,8 +2486,9 @@ const TalentProfile = () => {
                                             </div>
                                             <div class="gigs-card-footer">
                                                 <div>
-                                                    <a href="#" class="share-icon"><i
-                                                        class="feather-share-2"></i></a>
+                                                    <a role="button"
+                                                        tabIndex="0" class="share-icon"><i
+                                                            class="feather-share-2"></i></a>
                                                     <span class="badge">Delivery in 2 day</span>
                                                 </div>
                                                 <h5>$900</h5>

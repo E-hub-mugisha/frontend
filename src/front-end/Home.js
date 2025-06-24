@@ -352,7 +352,8 @@ const Home = () => {
                             <div className="col d-flex">
                                 <div className="pop-category flex-fill" data-aos="flip-left">
                                     <span><i className="ti ti-movie"></i></span>
-                                    <h6 className="mb-1"><a href="#">{cat.name}</a></h6>
+                                    <h6 className="mb-1"><a role="button"
+  tabIndex="0">{cat.name}</a></h6>
                                     <p>85 Stories</p>
                                 </div>
                             </div>
@@ -529,43 +530,50 @@ const Home = () => {
                         <div className="listing-slider">
                             <ul className="nav nav-tabs justify-content-center">
                                 <li className="nav-item">
-                                    <a href="#" className="nav-link active" data-bs-toggle="tab"
+                                    <a role="button"
+  tabIndex="0" className="nav-link active" data-bs-toggle="tab"
                                         data-bs-target="#allservices">
                                         All Skills
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="#" className="nav-link" data-bs-toggle="tab"
+                                    <a role="button"
+  tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#writing_translation">
                                         Writing & Translation
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="#" className="nav-link" data-bs-toggle="tab"
+                                    <a role="button"
+  tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#ai_services">
                                         AI Services
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="nav-link" data-bs-toggle="tab"
+                                    <a role="button"
+  tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#graphics_design">
                                         Graphics & Design
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="nav-link" data-bs-toggle="tab"
+                                    <a role="button"
+  tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#data_analysis">
                                         Data Analysis
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="nav-link" data-bs-toggle="tab"
+                                    <a role="button"
+  tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#analytics_strategy">
                                         Analytics & Strategy
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="nav-link" data-bs-toggle="tab"
+                                    <a role="button"
+  tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#video_animation">
                                         Video & Animation
                                     </a>
@@ -597,10 +605,12 @@ const Home = () => {
                                                         className="fa-solid fa-meteor"></i>{skill.level}</span></a>
                                                 </div>
                                                 <div className="fav-selection">
-                                                    <a href="#">
+                                                    <a role="button"
+  tabIndex="0">
                                                         <i className="feather-video"></i>
                                                     </a>
-                                                    <a href="#" className="fav-icon">
+                                                    <a role="button"
+  tabIndex="0" className="fav-icon">
                                                         <i className="feather-heart"></i>
                                                     </a>
                                                 </div>
@@ -632,7 +642,8 @@ const Home = () => {
                                                                 src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                                 alt="img" /></a>
                                                         <div className="ms-2">
-                                                            <h6 className="mb-0"><a href="#">{skill.talent ? skill.talent.name : "Author"}</a></h6>
+                                                            <h6 className="mb-0"><a role="button"
+  tabIndex="0">{skill.talent ? skill.talent.name : "Author"}</a></h6>
                                                             <p className="mb-0">Newyork, USA</p>
                                                         </div>
                                                     </div>
@@ -678,10 +689,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -712,7 +725,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Adrian Silvia</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -751,10 +765,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -785,7 +801,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Sebastian Vettal</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -825,10 +842,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -859,7 +878,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Alex Revaria</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -904,10 +924,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -938,7 +960,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Adrian Silvia</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -977,10 +1000,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1011,7 +1036,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Sebastian Vettal</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -1050,10 +1076,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1084,7 +1112,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Alex Revaria</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -1129,10 +1158,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1163,7 +1194,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Adrian Silvia</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -1202,10 +1234,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1236,7 +1270,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Sebastian Vettal</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -1275,10 +1310,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1309,7 +1346,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Alex Revaria</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -1354,10 +1392,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1388,7 +1428,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Adrian Silvia</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -1427,10 +1468,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1461,7 +1504,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Sebastian Vettal</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -1500,10 +1544,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1534,7 +1580,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Alex Revaria</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -1579,10 +1626,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1613,7 +1662,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Adrian Silvia</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -1652,10 +1702,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1686,7 +1738,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Sebastian Vettal</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -1725,10 +1778,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1759,7 +1814,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Alex Revaria</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -1803,10 +1859,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1837,7 +1895,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Adrian Silvia</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -1876,10 +1935,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1910,7 +1971,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Sebastian Vettal</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -1949,10 +2011,12 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="#">
+                                                <a role="button"
+  tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="#" className="fav-icon">
+                                                <a role="button"
+  tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1983,7 +2047,8 @@ const Home = () => {
                                                             src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
                                                             alt="img" /></a>
                                                     <div className="ms-2">
-                                                        <h6 className="mb-0"><a href="#">Alex Revaria</a></h6>
+                                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -2101,10 +2166,12 @@ const Home = () => {
                         <div className="col-lg-6">
                             <div className="testimonials-item bg-white rounded" data-aos="fade-up">
                                 <div className="d-flex align-items-center gigs-left-text mb-3">
-                                    <a href="#" className="avatar avatar-sm flex-shrink-0"><img
+                                    <a role="button"
+  tabIndex="0" className="avatar avatar-sm flex-shrink-0"><img
                                         src="assets/img/user/profile.jpg" className="img-fluid rounded-pill" alt="img" /></a>
                                     <div className="ms-2">
-                                        <h6 className="mb-0"><a href="#">Adrian Silvia</a></h6>
+                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">Adrian Silvia</a></h6>
                                         <p className="mb-0">Nairobi, Kenya</p>
                                     </div>
                                 </div>
@@ -2120,10 +2187,12 @@ const Home = () => {
                             </div>
                             <div className="testimonials-item bg-white rounded mb-0" data-aos="fade-up">
                                 <div className="d-flex align-items-center gigs-left-text mb-3">
-                                    <a href="#" className="avatar avatar-sm flex-shrink-0"><img
+                                    <a role="button"
+  tabIndex="0" className="avatar avatar-sm flex-shrink-0"><img
                                         src="assets/img/user/profile.jpg" className="img-fluid rounded-pill" alt="img" /></a>
                                     <div className="ms-2">
-                                        <h6 className="mb-0"><a href="#">James Don</a></h6>
+                                        <h6 className="mb-0"><a role="button"
+  tabIndex="0">James Don</a></h6>
                                         <p className="mb-0">Accra, Ghana</p>
                                     </div>
                                 </div>

@@ -85,11 +85,16 @@ export const UserFooter = () => {
 						</a>
 						<div class="social-links">
 							<ul>
-								<li class="me-2"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-								<li class="me-2"><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-								<li class="me-2"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-								<li class="me-2"><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+								<li class="me-2"><a role="button"
+  tabIndex="0"><i class="fa-brands fa-facebook"></i></a></li>
+								<li class="me-2"><a role="button"
+  tabIndex="0"><i class="fa-brands fa-x-twitter"></i></a></li>
+								<li class="me-2"><a role="button"
+  tabIndex="0"><i class="fa-brands fa-instagram"></i></a></li>
+								<li class="me-2"><a role="button"
+  tabIndex="0"><i class="fa-brands fa-linkedin"></i></a></li>
+								<li><a role="button"
+  tabIndex="0"><i class="fa-brands fa-youtube"></i></a></li>
 							</ul>
 						</div>
 					</div>

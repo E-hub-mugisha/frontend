@@ -23,52 +23,23 @@ const AdminSidebar = () => {
                     </div>
                     <div class="header-right d-flex align-items-center">
                         <a href="index.html" class="btn btn-light fs-14 rounded-pill"><i class="ti ti-world me-1"></i>Website</a>
-                        <div class="dashboard-link">
-                            <ul class="d-inline-flex align-items-center p-1 rounded-pill">
-                                <li><a href="buyer-dashboard.html">Buyer</a></li>
-                                <li><a href="/admin/dashboard" class="active">Seller</a></li>
-                            </ul>
-                        </div>
-                        <div class="nav-item dropdown dropdown-menu-end flag-nav nav-item-box">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
-                                <img src="assets/img/flags/us.svg" alt="Language" class="img-fluid" />
-                            </a>
-                            <ul class="dropdown-menu p-2">
-                                <li>
-                                    <a href="#" class="dropdown-item justify-content-start">
-                                        <img src="assets/img/flags/us.svg" alt="" height="16" class="me-2" /> English
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="dropdown-item justify-content-start">
-                                        <img src="assets/img/flags/de.svg" alt="" height="16" class="me-2" /> German
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="dropdown-item justify-content-start">
-                                        <img src="assets/img/flags/fr.svg" alt="" height="16" class="me-2" /> French
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="dropdown-item justify-content-start">
-                                        <img src="assets/img/flags/ae.svg" alt="" height="16" class="me-2" /> Arabic
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                         <div class="nav-item dropdown flag-nav nav-item-box">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button"
+                                tabIndex="0" >
                                 <i class="ti ti-sun-high"></i>
                                 <i class="ti ti-moon"></i>
                             </a>
                             <ul class="dropdown-menu p-2">
                                 <li class="mb-1">
-                                    <a href="#" class="dropdown-item active theme-toggle" id="light-mode-toggle">
+                                    <a role="button"
+                                        tabIndex="0" class="dropdown-item active theme-toggle" id="light-mode-toggle">
                                         <i class="ti ti-sun-high me-1"></i>Light Mode
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="dropdown-item theme-toggle" id="dark-mode-toggle">
+                                    <a role="button"
+                                        tabIndex="0" class="dropdown-item theme-toggle" id="dark-mode-toggle">
                                         <i class="ti ti-moon me-1"></i>Dark Mode
                                     </a>
                                 </li>
@@ -215,7 +186,8 @@ const AdminSidebar = () => {
                         </div>
                     </div>
                     <div class="mobile-user-menu">
-                        <a href="#" class="dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
+                        <a role="button"
+                            tabIndex="0" class="dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
                             <span class="avatar online avatar-sm">
                                 <img src="assets/img/user/user-04.jpg" alt="Img" class="img-fluid rounded-circle" />
                             </span>
@@ -280,7 +252,8 @@ const AdminSidebar = () => {
                         <a href="/admin/dashboard" class="dark-logo">
                             <img src="assets/img/dark-logo.svg" alt="Logo" class="img-fluid" />
                         </a>
-                        <a id="toggle_btn" href="#" class="active">
+                        <a id="toggle_btn" role="button"
+                            tabIndex="0" class="active">
                             <i class="ti ti-arrow-bar-right"></i>
                         </a>
                     </div>

@@ -23,7 +23,8 @@ export const UserHeader = () => {
                 <div class="container">
                     <nav class="navbar navbar-expand-lg header-nav p-0">
                         <div class="navbar-header">
-                            <a id="mobile_btn" href="#">
+                            <a id="mobile_btn" role="button"
+  tabIndex="0">
                                 <span class="bar-icon">
                                     <span></span>
                                     <span></span>
@@ -49,18 +50,21 @@ export const UserHeader = () => {
                                     <img src="assets/img/FUTURE CONNECT LOGO - LONG - WHITE.svg" alt="Logo"
                                         class="img-fluid" />
                                 </a>
-                                <a id="menu_close" class="menu-close" href="#"> <i class="fas fa-times"></i></a>
+                                <a id="menu_close" class="menu-close" role="button"
+  tabIndex="0"> <i class="fas fa-times"></i></a>
                             </div>
                             <ul class="main-nav navbar-nav">
                                 <li><a href="/" class="nav-link active">Home</a></li>
 
                                 <li class="has-submenu">
-                                    <a href="#">Talents <i class="fas fa-chevron-down"></i></a>
+                                    <a role="button"
+  tabIndex="0">Talents <i class="fas fa-chevron-down"></i></a>
                                     <ul class="submenu">
                                         <li><a href="/talents">All Talents</a></li>
                                         <li><a href="/register_as_talent">Register as Talent</a></li>
                                         <li class="has-submenu">
-                                            <a href="#">Talent Categories </a>
+                                            <a role="button"
+  tabIndex="0">Talent Categories </a>
                                             <ul class="submenu">
                                                 {categories.map((cat) => (<li><a href="talents.html?category=music">{cat.name}</a></li>
                                                 ))}
@@ -74,12 +78,14 @@ export const UserHeader = () => {
                                 </li>
 
                                 <li class="has-submenu">
-                                    <a href="#">Stories <i class="fas fa-chevron-down"></i></a>
+                                    <a role="button"
+  tabIndex="0">Stories <i class="fas fa-chevron-down"></i></a>
                                     <ul class="submenu">
                                         <li><a href="stories.html">All Stories</a></li>
                                         <li><a href="upload-story.html">Upload Story</a></li>
                                         <li class="has-submenu">
-                                            <a href="#">Talent Categories </a>
+                                            <a role="button"
+  tabIndex="0">Talent Categories </a>
                                             <ul class="submenu">
                                                 <li><a href="stories.html?category=music">Music & Performance</a></li>
                                                 <li><a href="stories.html?category=tech">Tech & Coding</a></li>
@@ -105,20 +111,23 @@ export const UserHeader = () => {
                         <div class="d-flex align-items-center">
 
                             <div class="nav-item dropdown flag-nav nav-item-box nav-item-box-home me-3">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button"
+  tabIndex="0"
                                     role="button">
                                     <i class="ti ti-sun-high"></i>
                                     <i class="ti ti-moon"></i>
                                 </a>
                                 <ul class="dropdown-menu p-2">
                                     <li class="mb-1">
-                                        <a href="#" class="dropdown-item active theme-toggle rounded-2"
+                                        <a role="button"
+  tabIndex="0" class="dropdown-item active theme-toggle rounded-2"
                                             id="light-mode-toggle">
                                             <i class="ti ti-sun-high me-2"></i>Light Mode
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="dropdown-item theme-toggle rounded-2"
+                                        <a role="button"
+  tabIndex="0" class="dropdown-item theme-toggle rounded-2"
                                             id="dark-mode-toggle">
                                             <i class="ti ti-moon me-2"></i>Dark Mode
                                         </a>
