@@ -1,7 +1,6 @@
-import React from 'react';
-import api from '../api';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
+import api from '../api';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
@@ -19,11 +18,7 @@ const TalentSkillDetail = () => {
         message: '',
     });
 
-    useEffect(() => {
-        fetchSkill();
-    }, []);
-
-    const fetchSkill = async () => {
+    const fetchSkill = useCallback(async () => {
         try {
             const res = await api.get(`/talent/skills/${id}`);
             setSkill(res.data);
@@ -33,7 +28,11 @@ const TalentSkillDetail = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [id]);
+
+    useEffect(() => {
+        fetchSkill();
+    }, [fetchSkill]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -41,6 +40,7 @@ const TalentSkillDetail = () => {
             await api.post(`/skills/${id}/reviews`, form);
             alert('Review submitted!');
             setForm({ name: '', email: '', rating: 5, message: '' });
+            fetchSkill(); // Refresh after review submission
         } catch (error) {
             alert('Failed to submit review.');
             console.error(error);
