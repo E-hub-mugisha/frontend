@@ -121,7 +121,7 @@ const DashboardManagement = () => {
                             <div class="earning-btn text-end">
                                 <a href="seller-wallet.html" class="btn btn-primary btn-md" ><i class="ti ti-shopping-cart me-1"></i>Wallet</a>
                             </div>
-                            <a href="javascript:void(0);" class="withdraw-link" data-bs-toggle="modal" data-bs-target="#withdraw">Withdraw Funds</a>
+                            <a href="#" class="withdraw-link" data-bs-toggle="modal" data-bs-target="#withdraw">Withdraw Funds</a>
                         </div>
                     </div>
                 </div>
@@ -200,10 +200,10 @@ const DashboardManagement = () => {
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <div class="table-img">
-                                                            <a href="javascript:void(0);"><img src="assets/img/gigs/gigs-07.jpg" class="img-fluid rounded-pill" alt="img"/></a>
+                                                            <a href="#"><img src="assets/img/gigs/gigs-07.jpg" class="img-fluid rounded-pill" alt="img"/></a>
                                                         </div>
                                                         <div class="recent-payment">
-                                                            <h6><a href="javascript:void(0);">I will do creating and promoting video...</a></h6>
+                                                            <h6><a href="#">I will do creating and promoting video...</a></h6>
                                                             <ul>
                                                                 <li>Delivery Date: 11 Jan 2025</li>
                                                                 <li>Buyer : <span class="text-dark">Jones</span></li>
@@ -222,10 +222,10 @@ const DashboardManagement = () => {
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <div class="table-img">
-                                                            <a href="javascript:void(0);"><img src="assets/img/gigs/gigs-08.jpg" class="img-fluid rounded-pill" alt="img"/></a>
+                                                            <a href="#"><img src="assets/img/gigs/gigs-08.jpg" class="img-fluid rounded-pill" alt="img"/></a>
                                                         </div>
                                                         <div class="recent-payment">
-                                                            <h6><a href="javascript:void(0);">Optimizing online presence to enhance...</a></h6>
+                                                            <h6><a href="#">Optimizing online presence to enhance...</a></h6>
                                                             <ul>
                                                                 <li>Delivery Date: 11/01/2025</li>
                                                                 <li>Buyer : <span class="text-dark">Rose</span></li>
@@ -244,10 +244,10 @@ const DashboardManagement = () => {
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <div class="table-img">
-                                                            <a href="javascript:void(0);"><img src="assets/img/gigs/gigs-09.jpg" class="img-fluid rounded-pill" alt="img"/></a>
+                                                            <a href="#"><img src="assets/img/gigs/gigs-09.jpg" class="img-fluid rounded-pill" alt="img"/></a>
                                                         </div>
                                                         <div class="recent-payment">
-                                                            <h6><a href="javascript:void(0);">I will do english or german transcript of any...</a></h6>
+                                                            <h6><a href="#">I will do english or german transcript of any...</a></h6>
                                                             <ul>
                                                                 <li>Delivery Date: 09/01/2025</li>
                                                                 <li>Buyer : <span class="text-dark">Smith</span></li>
@@ -266,10 +266,10 @@ const DashboardManagement = () => {
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <div class="table-img">
-                                                            <a href="javascript:void(0);"><img src="assets/img/gigs/gigs-04.jpg" class="img-fluid rounded-pill" alt="img"/></a>
+                                                            <a href="#"><img src="assets/img/gigs/gigs-04.jpg" class="img-fluid rounded-pill" alt="img"/></a>
                                                         </div>
                                                         <div class="recent-payment">
-                                                            <h6><a href="javascript:void(0);">I will do professional lifestyle and product...</a></h6>
+                                                            <h6><a href="#">I will do professional lifestyle and product...</a></h6>
                                                             <ul>
                                                                 <li>Delivery Date: 08/01/2025</li>
                                                                 <li>Buyer : <span class="text-dark">Lidia</span></li>
@@ -288,10 +288,10 @@ const DashboardManagement = () => {
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <div class="table-img">
-                                                            <a href="javascript:void(0);"><img src="assets/img/gigs/gigs-06.jpg" class="img-fluid rounded-pill" alt="img"/></a>
+                                                            <a href="#"><img src="assets/img/gigs/gigs-06.jpg" class="img-fluid rounded-pill" alt="img"/></a>
                                                         </div>
                                                         <div class="recent-payment">
-                                                            <h6><a href="javascript:void(0);">I will develop openai, dalle, chat gpt...</a></h6>
+                                                            <h6><a href="#">I will develop openai, dalle, chat gpt...</a></h6>
                                                             <ul>
                                                                 <li>Delivery Date: 07/01/2025</li>
                                                                 <li>Buyer : <span class="text-dark">Anderson</span></li>
@@ -333,8 +333,8 @@ const DashboardManagement = () => {
                                                             <p>Update on: 11 Jan 2025</p>
                                                         </div>
                                                         <div class="card-edit-icon d-flex gap-2">
-                                                            <a href="javascript:void(0);" class="d-flex align-items-center justify-content-center"><i class="ti ti-info-circle "></i> </a>
-                                                            <a href="javascript:void(0);" class="d-flex align-items-center justify-content-center"><i class="ti ti-download"></i> </a>
+                                                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="ti ti-info-circle "></i> </a>
+                                                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="ti ti-download"></i> </a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -348,8 +348,8 @@ const DashboardManagement = () => {
                                                             <p>Update on: 10 Jan 2025</p>
                                                         </div>
                                                         <div class="card-edit-icon d-flex gap-2">
-                                                            <a href="javascript:void(0);" class="d-flex align-items-center justify-content-center"><i class="ti ti-info-circle "></i> </a>
-                                                            <a href="javascript:void(0);" class="d-flex align-items-center justify-content-center"><i class="ti ti-download"></i> </a>
+                                                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="ti ti-info-circle "></i> </a>
+                                                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="ti ti-download"></i> </a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -363,8 +363,8 @@ const DashboardManagement = () => {
                                                             <p>Update on: 09 Jan 2025</p>
                                                         </div>
                                                         <div class="card-edit-icon d-flex gap-2">
-                                                            <a href="javascript:void(0);" class="d-flex align-items-center justify-content-center"><i class="ti ti-info-circle "></i> </a>
-                                                            <a href="javascript:void(0);" class="d-flex align-items-center justify-content-center"><i class="ti ti-download"></i> </a>
+                                                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="ti ti-info-circle "></i> </a>
+                                                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="ti ti-download"></i> </a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -378,8 +378,8 @@ const DashboardManagement = () => {
                                                             <p>Update on: 08 Jan 2025</p>
                                                         </div>
                                                         <div class="card-edit-icon d-flex gap-2">
-                                                            <a href="javascript:void(0);" class="d-flex align-items-center justify-content-center"><i class="ti ti-info-circle "></i> </a>
-                                                            <a href="javascript:void(0);" class="d-flex align-items-center justify-content-center"><i class="ti ti-download"></i> </a>
+                                                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="ti ti-info-circle "></i> </a>
+                                                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="ti ti-download"></i> </a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -393,8 +393,8 @@ const DashboardManagement = () => {
                                                             <p>Update on: 07 Jan 2025</p>
                                                         </div>
                                                         <div class="card-edit-icon d-flex gap-2">
-                                                            <a href="javascript:void(0);" class="d-flex align-items-center justify-content-center"><i class="ti ti-info-circle "></i> </a>
-                                                            <a href="javascript:void(0);" class="d-flex align-items-center justify-content-center"><i class="ti ti-download"></i> </a>
+                                                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="ti ti-info-circle "></i> </a>
+                                                            <a href="#" class="d-flex align-items-center justify-content-center"><i class="ti ti-download"></i> </a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -419,12 +419,12 @@ const DashboardManagement = () => {
                                 <div class="d-flex align-item-center gap-3">
                                     <ul class="revenue-tab nav nav-tabs m-0 border-0" role="tablist">
                                         <li class="nav-item" role="presentation">
-                                            <a href="javascript:void(0);" class="nav-link active" data-bs-toggle="tab" data-bs-target="#gigs_Information" aria-selected="false" role="tab" tabindex="-1">
+                                            <a href="#" class="nav-link active" data-bs-toggle="tab" data-bs-target="#gigs_Information" aria-selected="false" role="tab" tabindex="-1">
                                                 Gigs
                                             </a>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <a href="javascript:void(0);" class="nav-link" data-bs-toggle="tab" data-bs-target="#pay_Information" aria-selected="false" role="tab" tabindex="-1">
+                                            <a href="#" class="nav-link" data-bs-toggle="tab" data-bs-target="#pay_Information" aria-selected="false" role="tab" tabindex="-1">
                                                 Payments
                                             </a>
                                         </li>
@@ -486,7 +486,7 @@ const DashboardManagement = () => {
                                             <tr>
                                                 <td>
                                                     <div class="recent-payment">
-                                                        <h6><a href="javascript:void(0);">I will create a chatbot to change leads..</a></h6>
+                                                        <h6><a href="#">I will create a chatbot to change leads..</a></h6>
                                                         <p>Id : #232 <span>|</span> Order Date: 11 Jan 2025</p>
                                                     </div>
                                                 </td>
@@ -495,13 +495,13 @@ const DashboardManagement = () => {
                                                 </td>
                                                 <td class="text-end amount-info w-25">
                                                     <h6 class="mb-0">+$500</h6>
-                                                    <a href="javascript:void(0);" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#transaction_details">View</a>
+                                                    <a href="#" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#transaction_details">View</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <div class="recent-payment">
-                                                        <h6><a href="javascript:void(0);">I will do english or german transcript of any..</a></h6>
+                                                        <h6><a href="#">I will do english or german transcript of any..</a></h6>
                                                         <p>Id : #231 <span>|</span> Order Date: 10 Jan 2025</p>
                                                     </div>
                                                 </td>
@@ -510,13 +510,13 @@ const DashboardManagement = () => {
                                                 </td>
                                                 <td class="text-end amount-info w-25">
                                                     <h6 class="mb-0">+$500</h6>
-                                                    <a href="javascript:void(0);" class="btn btn-primary btn-md " data-bs-toggle="modal" data-bs-target="#transaction_details">View</a>
+                                                    <a href="#" class="btn btn-primary btn-md " data-bs-toggle="modal" data-bs-target="#transaction_details">View</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <div class="recent-payment">
-                                                        <h6><a href="javascript:void(0);">I will do professional lifestyle and product ph..</a></h6>
+                                                        <h6><a href="#">I will do professional lifestyle and product ph..</a></h6>
                                                         <p>Id : #230 <span>|</span> Order Date: 09 Jan 2025</p>
                                                     </div>
                                                 </td>
@@ -525,13 +525,13 @@ const DashboardManagement = () => {
                                                 </td>
                                                 <td class="text-end amount-info w-25">
                                                     <h6 class="mb-0">+$7800</h6>
-                                                    <a href="javascript:void(0);" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#transaction_details">View</a>
+                                                    <a href="#" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#transaction_details">View</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <div class="recent-payment">
-                                                        <h6><a href="javascript:void(0);">I will develop openai, dall, chat gpt app for...</a></h6>
+                                                        <h6><a href="#">I will develop openai, dall, chat gpt app for...</a></h6>
                                                         <p>Id : #229 <span>|</span> Order Date: 08 Jan 2025</p>
                                                     </div>
                                                 </td>
@@ -540,13 +540,13 @@ const DashboardManagement = () => {
                                                 </td>
                                                 <td class="text-end amount-info w-25">
                                                     <h6 class="mb-0">+$7400</h6>
-                                                    <a href="javascript:void(0);" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#transaction_details">View</a>
+                                                    <a href="#" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#transaction_details">View</a>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <div class="recent-payment">
-                                                        <h6><a href="javascript:void(0);">I will develop Website for Ecommerce</a></h6>
+                                                        <h6><a href="#">I will develop Website for Ecommerce</a></h6>
                                                         <p>Id : #414 <span>|</span> Order Date: 07 Jan 2025</p>
                                                     </div>
                                                 </td>
@@ -555,7 +555,7 @@ const DashboardManagement = () => {
                                                 </td>
                                                 <td class="text-end amount-info w-25">
                                                     <h6 class="mb-0">+$1452</h6>
-                                                    <a href="javascript:void(0);" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#transaction_details">View</a>
+                                                    <a href="#" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#transaction_details">View</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -579,7 +579,7 @@ const DashboardManagement = () => {
                                             <tr>
                                                 <td>
                                                     <div class="recent-payment">
-                                                        <h6><a href="javascript:void(0);">Your Password Changed</a></h6>
+                                                        <h6><a href="#">Your Password Changed</a></h6>
                                                         <p>54 Min Ago</p>
                                                     </div>
                                                 </td>
@@ -587,7 +587,7 @@ const DashboardManagement = () => {
                                             <tr>
                                                 <td>
                                                     <div class="recent-payment">
-                                                        <h6><a href="javascript:void(0);">Payment Settings Updated</a></h6>
+                                                        <h6><a href="#">Payment Settings Updated</a></h6>
                                                         <p>1 Hour Ago</p>
                                                     </div>
                                                 </td>
@@ -595,7 +595,7 @@ const DashboardManagement = () => {
                                             <tr>
                                                 <td>
                                                     <div class="recent-payment">
-                                                        <h6><a href="javascript:void(0);">Purchased  Gigs “I will do professional..”</a></h6>
+                                                        <h6><a href="#">Purchased  Gigs “I will do professional..”</a></h6>
                                                         <p>1 Day Ago</p>
                                                     </div>
                                                 </td>
@@ -603,7 +603,7 @@ const DashboardManagement = () => {
                                             <tr>
                                                 <td>
                                                     <div class="recent-payment">
-                                                        <h6><a href="javascript:void(0);">Added New Gig “I will do english”.</a></h6>
+                                                        <h6><a href="#">Added New Gig “I will do english”.</a></h6>
                                                         <p>15 Min Ago</p>
                                                     </div>
                                                 </td>
@@ -611,7 +611,7 @@ const DashboardManagement = () => {
                                             <tr>
                                                 <td>
                                                     <div class="recent-payment">
-                                                        <h6><a href="javascript:void(0);">Profile Updated</a></h6>
+                                                        <h6><a href="#">Profile Updated</a></h6>
                                                         <p>1 Day Ago</p>
                                                     </div>
                                                 </td>

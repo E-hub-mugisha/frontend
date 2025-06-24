@@ -529,43 +529,43 @@ const Home = () => {
                         <div className="listing-slider">
                             <ul className="nav nav-tabs justify-content-center">
                                 <li className="nav-item">
-                                    <a href="javascript:void(0);" className="nav-link active" data-bs-toggle="tab"
+                                    <a href="#" className="nav-link active" data-bs-toggle="tab"
                                         data-bs-target="#allservices">
                                         All Skills
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="javascript:void(0);" className="nav-link" data-bs-toggle="tab"
+                                    <a href="#" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#writing_translation">
                                         Writing & Translation
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="javascript:void(0);" className="nav-link" data-bs-toggle="tab"
+                                    <a href="#" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#ai_services">
                                         AI Services
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);" className="nav-link" data-bs-toggle="tab"
+                                    <a href="#" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#graphics_design">
                                         Graphics & Design
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);" className="nav-link" data-bs-toggle="tab"
+                                    <a href="#" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#data_analysis">
                                         Data Analysis
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);" className="nav-link" data-bs-toggle="tab"
+                                    <a href="#" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#analytics_strategy">
                                         Analytics & Strategy
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);" className="nav-link" data-bs-toggle="tab"
+                                    <a href="#" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#video_animation">
                                         Video & Animation
                                     </a>
@@ -597,10 +597,10 @@ const Home = () => {
                                                         className="fa-solid fa-meteor"></i>{skill.level}</span></a>
                                                 </div>
                                                 <div className="fav-selection">
-                                                    <a href="javascript:void(0);">
+                                                    <a href="#">
                                                         <i className="feather-video"></i>
                                                     </a>
-                                                    <a href="javascript:void(0);" className="fav-icon">
+                                                    <a href="#" className="fav-icon">
                                                         <i className="feather-heart"></i>
                                                     </a>
                                                 </div>
@@ -678,10 +678,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -751,10 +751,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -825,10 +825,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -904,10 +904,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -977,10 +977,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1050,10 +1050,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1129,10 +1129,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1202,10 +1202,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1275,10 +1275,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1354,10 +1354,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1427,10 +1427,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1500,10 +1500,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1579,10 +1579,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1652,10 +1652,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1725,10 +1725,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1803,10 +1803,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1876,10 +1876,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1949,10 +1949,10 @@ const Home = () => {
                                                     className="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div className="fav-selection">
-                                                <a href="javascript:void(0);">
+                                                <a href="#">
                                                     <i className="feather-video"></i>
                                                 </a>
-                                                <a href="javascript:void(0);" className="fav-icon">
+                                                <a href="#" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -2101,7 +2101,7 @@ const Home = () => {
                         <div className="col-lg-6">
                             <div className="testimonials-item bg-white rounded" data-aos="fade-up">
                                 <div className="d-flex align-items-center gigs-left-text mb-3">
-                                    <a href="javascript:void(0);" className="avatar avatar-sm flex-shrink-0"><img
+                                    <a href="#" className="avatar avatar-sm flex-shrink-0"><img
                                         src="assets/img/user/profile.jpg" className="img-fluid rounded-pill" alt="img" /></a>
                                     <div className="ms-2">
                                         <h6 className="mb-0"><a href="#">Adrian Silvia</a></h6>
@@ -2120,7 +2120,7 @@ const Home = () => {
                             </div>
                             <div className="testimonials-item bg-white rounded mb-0" data-aos="fade-up">
                                 <div className="d-flex align-items-center gigs-left-text mb-3">
-                                    <a href="javascript:void(0);" className="avatar avatar-sm flex-shrink-0"><img
+                                    <a href="#" className="avatar avatar-sm flex-shrink-0"><img
                                         src="assets/img/user/profile.jpg" className="img-fluid rounded-pill" alt="img" /></a>
                                     <div className="ms-2">
                                         <h6 className="mb-0"><a href="#">James Don</a></h6>

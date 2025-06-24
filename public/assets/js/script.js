@@ -1135,7 +1135,7 @@ Version      : 1.0
 				  <div>					
 					<input type="text" class="form-control">
 				   </div>
-					<a href="javascript:void(0);" class="trash-sign ms-2 text-danger"><i class="feather-trash-2"></i></a>
+					<a href="#" class="trash-sign ms-2 text-danger"><i class="feather-trash-2"></i></a>
 				  </div>
 				</div>
 			</div>

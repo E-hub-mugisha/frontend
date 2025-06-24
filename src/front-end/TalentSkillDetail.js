@@ -83,7 +83,7 @@ const TalentSkillDetail = () => {
                         <div class="col-lg-8">
 
                             <div class="breadcrumb-bar breadcrumb-bar-info breadcrumb-info text-start pt-0 bg-white">
-                                <a href="javascript:void(0);" class="badge bg-light mb-4 text-dark">
+                                <a href="#" class="badge bg-light mb-4 text-dark">
                                     {skill.category ? skill.category.name : "Uncategorized"}
                                 </a>
                                 <br />
@@ -159,32 +159,32 @@ const TalentSkillDetail = () => {
                                 <div class="listing-slider">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li class="nav-item" role="presentation">
-                                            <a href="javascript:void(0);" class="nav-link active" data-bs-toggle="tab"
+                                            <a href="#" class="nav-link active" data-bs-toggle="tab"
                                                 data-bs-target="#about_me" aria-selected="false" role="tab" tabindex="-1">
                                                 Description
                                             </a>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <a href="javascript:void(0);" class="nav-link" data-bs-toggle="tab"
+                                            <a href="#" class="nav-link" data-bs-toggle="tab"
                                                 data-bs-target="#work_me" aria-selected="false" role="tab" tabindex="-1">
                                                 Why Work With me
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0);" class="nav-link" data-bs-toggle="tab"
+                                            <a href="#" class="nav-link" data-bs-toggle="tab"
                                                 data-bs-target="#faq" aria-selected="false" role="tab" tabindex="-1">
                                                 FAQ
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0);" class="nav-link" data-bs-toggle="tab"
+                                            <a href="#" class="nav-link" data-bs-toggle="tab"
                                                 data-bs-target="#recent_works" aria-selected="false" role="tab"
                                                 tabindex="-1">
                                                 Recent Works
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0);" class="nav-link" data-bs-toggle="tab"
+                                            <a href="#" class="nav-link" data-bs-toggle="tab"
                                                 data-bs-target="#review" aria-selected="false" role="tab" tabindex="-1">
                                                 Reviews
                                             </a>
@@ -332,7 +332,7 @@ const TalentSkillDetail = () => {
                                                     <div class="filters-wrap sort-categories justify-content-end">
                                                         <div class="collapse-card float-lg-end">
                                                             <div class="filter-header">
-                                                                <a href="javascript:void(0);" class="sorts-list">
+                                                                <a href="#" class="sorts-list">
                                                                     Most Recent
                                                                 </a>
                                                             </div>
@@ -467,7 +467,7 @@ const TalentSkillDetail = () => {
                                                         </div>
                                                         <div className="review-content">
                                                             <p>{review.message}</p>
-                                                            <a href="javascript:void(0);" className="reply-btn bg-light">
+                                                            <a href="#" className="reply-btn bg-light">
                                                                 <i className="feather-corner-up-left"></i>Reply
                                                             </a>
                                                         </div>
@@ -658,11 +658,11 @@ const TalentSkillDetail = () => {
                                 <h5 class="">Share This Skill</h5>
                                 <div class="social-links d-flex align-items-center breadcrumb-social pt-2">
                                     <ul>
-                                        <li><a href="javascript:void(0);"><i class="fa-brands fa-facebook"></i></a></li>
-                                        <li><a href="javascript:void(0);"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                        <li><a href="javascript:void(0);"><i class="fa-brands fa-instagram"></i></a></li>
-                                        <li><a href="javascript:void(0);"><i class="fa-brands fa-google"></i></a></li>
-                                        <li><a href="javascript:void(0);"><i class="fa-brands fa-youtube"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-google"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -709,9 +709,9 @@ const TalentSkillDetail = () => {
                                                     class="fa-solid fa-meteor"></i>Hot</span></a>
                                             </div>
                                             <div class="fav-selection">
-                                                <a href="javascript:void(0);" class="video-icon"><i
+                                                <a href="#" class="video-icon"><i
                                                     class="feather-video"></i></a>
-                                                <a href="javascript:void(0);" class="fav-icon"><i
+                                                <a href="#" class="fav-icon"><i
                                                     class="feather-heart"></i></a>
                                             </div>
                                             <div class="user-thumb">
@@ -734,7 +734,7 @@ const TalentSkillDetail = () => {
                                             </div>
                                             <div class="gigs-card-footer">
                                                 <div>
-                                                    <a href="javascript:void(0);" class="share-icon"><i
+                                                    <a href="#" class="share-icon"><i
                                                         class="feather-share-2"></i></a>
                                                     <span class="badge">Delivery in 1 day</span>
                                                 </div>
@@ -759,7 +759,7 @@ const TalentSkillDetail = () => {
                                                 </div>
                                             </div>
                                             <div class="fav-selection">
-                                                <a href="javascript:void(0);" class="fav-icon"><i
+                                                <a href="#" class="fav-icon"><i
                                                     class="feather-heart"></i></a>
                                             </div>
                                             <div class="user-thumb">
@@ -782,7 +782,7 @@ const TalentSkillDetail = () => {
                                             </div>
                                             <div class="gigs-card-footer">
                                                 <div>
-                                                    <a href="javascript:void(0);" class="share-icon"><i
+                                                    <a href="#" class="share-icon"><i
                                                         class="feather-share-2"></i></a>
                                                     <span class="badge">Delivery in 2 day</span>
                                                 </div>
@@ -807,7 +807,7 @@ const TalentSkillDetail = () => {
                                                 </div>
                                             </div>
                                             <div class="fav-selection">
-                                                <a href="javascript:void(0);" class="fav-icon"><i
+                                                <a href="#" class="fav-icon"><i
                                                     class="feather-heart"></i></a>
                                             </div>
                                             <div class="user-thumb">
@@ -830,7 +830,7 @@ const TalentSkillDetail = () => {
                                             </div>
                                             <div class="gigs-card-footer">
                                                 <div>
-                                                    <a href="javascript:void(0);" class="share-icon"><i
+                                                    <a href="#" class="share-icon"><i
                                                         class="feather-share-2"></i></a>
                                                     <span class="badge">Delivery in 1 day</span>
                                                 </div>
@@ -858,7 +858,7 @@ const TalentSkillDetail = () => {
                                                 <span class="badge bg-danger"><i class="fa-solid fa-meteor"></i>Hot</span>
                                             </div>
                                             <div class="fav-selection">
-                                                <a href="javascript:void(0);" class="fav-icon"><i
+                                                <a href="#" class="fav-icon"><i
                                                     class="feather-heart"></i></a>
                                             </div>
                                             <div class="user-thumb">
@@ -881,7 +881,7 @@ const TalentSkillDetail = () => {
                                             </div>
                                             <div class="gigs-card-footer">
                                                 <div>
-                                                    <a href="javascript:void(0);" class="share-icon"><i
+                                                    <a href="#" class="share-icon"><i
                                                         class="feather-share-2"></i></a>
                                                     <span class="badge">Delivery in 2 day</span>
                                                 </div>
