@@ -33,5 +33,5 @@ jobs:
         username: ${{ secrets.CPANEL_FTP_USERNAME }}
         password: ${{ secrets.CPANEL_FTP_PASSWORD }}
         port: 21
-        local-dir: build
+        local-dir: build/
         server-dir: public_html/   # Adjust to your target directory
