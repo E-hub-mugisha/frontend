@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import api from '../api'; // ✅ correct import
+import api from '../publicApi'; // ✅ correct import
+
 
 const Home = () => {
     const [talents, setTalents] = useState([]);
@@ -35,12 +36,14 @@ const Home = () => {
 
     const fetchSkills = async () => {
         try {
-        const res = await api.get('/skills');
-        setSkills(res.data.skills || []); // Ensure skills is an array
+            const res = await api.get('/skills');
+            setSkills(res.data.skills || []); // Ensure skills is an array
         } catch (err) {
             console.error('Failed to fetch skills:', err);
         }
     };
+
+   
     return (
         <div>
 
@@ -78,7 +81,7 @@ const Home = () => {
 
                                     <div className="col-lg-5">
                                         <div className="banner-image position-relative">
-                                            <img src="assets/img/home/banner-image.svg" alt="Future Connect hero image"
+                                            <img src="/assets/img/home/banner-image.svg" alt="Future Connect hero image"
                                                 className="img-fluid banner-img" />
                                         </div>
                                     </div>
@@ -112,7 +115,7 @@ const Home = () => {
                                     <div className="col-lg-5">
                                         <div className="banner-image position-relative">
 
-                                            <img src="assets/img/home/front-view-handsome-male-musician-singing-home-with-microphone.jpg"
+                                            <img src="/assets/img/home/front-view-handsome-male-musician-singing-home-with-microphone.jpg"
                                                 alt="Hero image 2" className="img-fluid banner-img" />
                                         </div>
                                     </div>
@@ -353,7 +356,7 @@ const Home = () => {
                                 <div className="pop-category flex-fill" data-aos="flip-left">
                                     <span><i className="ti ti-movie"></i></span>
                                     <h6 className="mb-1"><a role="button"
-  tabIndex="0">{cat.name}</a></h6>
+                                        tabIndex="0">{cat.name}</a></h6>
                                     <p>85 Stories</p>
                                 </div>
                             </div>
@@ -531,49 +534,49 @@ const Home = () => {
                             <ul className="nav nav-tabs justify-content-center">
                                 <li className="nav-item">
                                     <a role="button"
-  tabIndex="0" className="nav-link active" data-bs-toggle="tab"
+                                        tabIndex="0" className="nav-link active" data-bs-toggle="tab"
                                         data-bs-target="#allservices">
                                         All Skills
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a role="button"
-  tabIndex="0" className="nav-link" data-bs-toggle="tab"
+                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#writing_translation">
                                         Writing & Translation
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a role="button"
-  tabIndex="0" className="nav-link" data-bs-toggle="tab"
+                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#ai_services">
                                         AI Services
                                     </a>
                                 </li>
                                 <li>
                                     <a role="button"
-  tabIndex="0" className="nav-link" data-bs-toggle="tab"
+                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#graphics_design">
                                         Graphics & Design
                                     </a>
                                 </li>
                                 <li>
                                     <a role="button"
-  tabIndex="0" className="nav-link" data-bs-toggle="tab"
+                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#data_analysis">
                                         Data Analysis
                                     </a>
                                 </li>
                                 <li>
                                     <a role="button"
-  tabIndex="0" className="nav-link" data-bs-toggle="tab"
+                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#analytics_strategy">
                                         Analytics & Strategy
                                     </a>
                                 </li>
                                 <li>
                                     <a role="button"
-  tabIndex="0" className="nav-link" data-bs-toggle="tab"
+                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#video_animation">
                                         Video & Animation
                                     </a>
@@ -596,7 +599,7 @@ const Home = () => {
                                                                 alt="Gigs" />
                                                         </a>
                                                     </div>
-                                                    
+
                                                 </div>
                                                 <div className="card-overlay-badge">
                                                     <a href="service.html"><span className="badge bg-warning"><i
@@ -606,11 +609,11 @@ const Home = () => {
                                                 </div>
                                                 <div className="fav-selection">
                                                     <a role="button"
-  tabIndex="0">
+                                                        tabIndex="0">
                                                         <i className="feather-video"></i>
                                                     </a>
                                                     <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                        tabIndex="0" className="fav-icon">
                                                         <i className="feather-heart"></i>
                                                     </a>
                                                 </div>
@@ -643,7 +646,7 @@ const Home = () => {
                                                                 alt="img" /></a>
                                                         <div className="ms-2">
                                                             <h6 className="mb-0"><a role="button"
-  tabIndex="0">{skill.talent ? skill.talent.name : "Author"}</a></h6>
+                                                                tabIndex="0">{skill.talent ? skill.talent.name : "Author"}</a></h6>
                                                             <p className="mb-0">Newyork, USA</p>
                                                         </div>
                                                     </div>
@@ -690,11 +693,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -726,7 +729,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Adrian Silvia</a></h6>
+                                                            tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -766,11 +769,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -802,7 +805,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Sebastian Vettal</a></h6>
+                                                            tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -843,11 +846,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -879,7 +882,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Alex Revaria</a></h6>
+                                                            tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -925,11 +928,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -961,7 +964,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Adrian Silvia</a></h6>
+                                                            tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -1001,11 +1004,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1037,7 +1040,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Sebastian Vettal</a></h6>
+                                                            tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -1077,11 +1080,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1113,7 +1116,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Alex Revaria</a></h6>
+                                                            tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -1159,11 +1162,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1195,7 +1198,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Adrian Silvia</a></h6>
+                                                            tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -1235,11 +1238,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1271,7 +1274,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Sebastian Vettal</a></h6>
+                                                            tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -1311,11 +1314,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1347,7 +1350,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Alex Revaria</a></h6>
+                                                            tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -1393,11 +1396,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1429,7 +1432,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Adrian Silvia</a></h6>
+                                                            tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -1469,11 +1472,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1505,7 +1508,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Sebastian Vettal</a></h6>
+                                                            tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -1545,11 +1548,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1581,7 +1584,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Alex Revaria</a></h6>
+                                                            tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -1627,11 +1630,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1663,7 +1666,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Adrian Silvia</a></h6>
+                                                            tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -1703,11 +1706,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1739,7 +1742,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Sebastian Vettal</a></h6>
+                                                            tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -1779,11 +1782,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1815,7 +1818,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Alex Revaria</a></h6>
+                                                            tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -1860,11 +1863,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1896,7 +1899,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Adrian Silvia</a></h6>
+                                                            tabIndex="0">Adrian Silvia</a></h6>
                                                         <p className="mb-0">Newyork, USA</p>
                                                     </div>
                                                 </div>
@@ -1936,11 +1939,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -1972,7 +1975,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Sebastian Vettal</a></h6>
+                                                            tabIndex="0">Sebastian Vettal</a></h6>
                                                         <p className="mb-0">Las Vegas, USA</p>
                                                     </div>
                                                 </div>
@@ -2012,11 +2015,11 @@ const Home = () => {
                                             </div>
                                             <div className="fav-selection">
                                                 <a role="button"
-  tabIndex="0">
+                                                    tabIndex="0">
                                                     <i className="feather-video"></i>
                                                 </a>
                                                 <a role="button"
-  tabIndex="0" className="fav-icon">
+                                                    tabIndex="0" className="fav-icon">
                                                     <i className="feather-heart"></i>
                                                 </a>
                                             </div>
@@ -2048,7 +2051,7 @@ const Home = () => {
                                                             alt="img" /></a>
                                                     <div className="ms-2">
                                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Alex Revaria</a></h6>
+                                                            tabIndex="0">Alex Revaria</a></h6>
                                                         <p className="mb-0">California, USA</p>
                                                     </div>
                                                 </div>
@@ -2167,11 +2170,11 @@ const Home = () => {
                             <div className="testimonials-item bg-white rounded" data-aos="fade-up">
                                 <div className="d-flex align-items-center gigs-left-text mb-3">
                                     <a role="button"
-  tabIndex="0" className="avatar avatar-sm flex-shrink-0"><img
-                                        src="assets/img/user/profile.jpg" className="img-fluid rounded-pill" alt="img" /></a>
+                                        tabIndex="0" className="avatar avatar-sm flex-shrink-0"><img
+                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill" alt="img" /></a>
                                     <div className="ms-2">
                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">Adrian Silvia</a></h6>
+                                            tabIndex="0">Adrian Silvia</a></h6>
                                         <p className="mb-0">Nairobi, Kenya</p>
                                     </div>
                                 </div>
@@ -2188,11 +2191,11 @@ const Home = () => {
                             <div className="testimonials-item bg-white rounded mb-0" data-aos="fade-up">
                                 <div className="d-flex align-items-center gigs-left-text mb-3">
                                     <a role="button"
-  tabIndex="0" className="avatar avatar-sm flex-shrink-0"><img
-                                        src="assets/img/user/profile.jpg" className="img-fluid rounded-pill" alt="img" /></a>
+                                        tabIndex="0" className="avatar avatar-sm flex-shrink-0"><img
+                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill" alt="img" /></a>
                                     <div className="ms-2">
                                         <h6 className="mb-0"><a role="button"
-  tabIndex="0">James Don</a></h6>
+                                            tabIndex="0">James Don</a></h6>
                                         <p className="mb-0">Accra, Ghana</p>
                                     </div>
                                 </div>

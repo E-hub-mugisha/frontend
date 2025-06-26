@@ -18,18 +18,18 @@ const AnnouncementManagement = () => {
     }, []);
 
     const fetchAnnouncements = async () => {
-        const res = await api.get('/admin/announcements');
-        setAnnouncements(res.data);
+        const res = await api.get('/announcements');
+        setAnnouncements(res.data.announcements || []);
     };
 
     const fetchCategories = async () => {
         const res = await api.get('/categories');
-        setCategories(res.data.categories || []);
+        setCategories(res.data);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await api.post('/admin/announcements', form);
+        await api.post('/announcements', form);
         setForm({ title: '', content: '', image: '', link: '', category_id: '' });
         fetchAnnouncements();
     };

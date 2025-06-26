@@ -24,7 +24,7 @@ export const UserHeader = () => {
                     <nav class="navbar navbar-expand-lg header-nav p-0">
                         <div class="navbar-header">
                             <a id="mobile_btn" role="button"
-  tabIndex="0">
+                                tabIndex="0">
                                 <span class="bar-icon">
                                     <span></span>
                                     <span></span>
@@ -51,20 +51,20 @@ export const UserHeader = () => {
                                         class="img-fluid" />
                                 </a>
                                 <a id="menu_close" class="menu-close" role="button"
-  tabIndex="0"> <i class="fas fa-times"></i></a>
+                                    tabIndex="0"> <i class="fas fa-times"></i></a>
                             </div>
                             <ul class="main-nav navbar-nav">
                                 <li><a href="/" class="nav-link active">Home</a></li>
 
                                 <li class="has-submenu">
                                     <a role="button"
-  tabIndex="0">Talents <i class="fas fa-chevron-down"></i></a>
+                                        tabIndex="0">Talents <i class="fas fa-chevron-down"></i></a>
                                     <ul class="submenu">
                                         <li><a href="/talents">All Talents</a></li>
                                         <li><a href="/register_as_talent">Register as Talent</a></li>
                                         <li class="has-submenu">
                                             <a role="button"
-  tabIndex="0">Talent Categories </a>
+                                                tabIndex="0">Talent Categories </a>
                                             <ul class="submenu">
                                                 {categories.map((cat) => (<li><a href="talents.html?category=music">{cat.name}</a></li>
                                                 ))}
@@ -79,24 +79,16 @@ export const UserHeader = () => {
 
                                 <li class="has-submenu">
                                     <a role="button"
-  tabIndex="0">Stories <i class="fas fa-chevron-down"></i></a>
+                                        tabIndex="0">Stories <i class="fas fa-chevron-down"></i></a>
                                     <ul class="submenu">
-                                        <li><a href="stories.html">All Stories</a></li>
-                                        <li><a href="upload-story.html">Upload Story</a></li>
+                                        <li><a href="/stories">All Stories</a></li>
+                                        <li><a href="/upload-story">Upload Story</a></li>
                                         <li class="has-submenu">
                                             <a role="button"
-  tabIndex="0">Talent Categories </a>
+                                                tabIndex="0">Story Categories </a>
                                             <ul class="submenu">
-                                                <li><a href="stories.html?category=music">Music & Performance</a></li>
-                                                <li><a href="stories.html?category=tech">Tech & Coding</a></li>
-                                                <li><a href="stories.html?category=art">Art & Design</a></li>
-                                                <li><a href="stories.html?category=entrepreneurship">Entrepreneurship</a>
-                                                </li>
-                                                <li><a href="stories.html?category=education">Education & Research</a></li>
-                                                <li><a href="stories.html?category=health">Health & Wellness</a></li>
-                                                <li><a href="stories.html?category=sports">Sports & Fitness</a></li>
-                                                <li><a href="stories.html?category=community">Community Leadership</a></li>
-                                                <li><a href="stories.html?category=life">Personal Growth</a></li>
+                                                {categories.map((cat) => (<li><a href="Storys.html?category=music">{cat.name}</a></li>
+                                                ))}
                                             </ul>
                                         </li>
                                     </ul>
@@ -111,8 +103,8 @@ export const UserHeader = () => {
                         <div class="d-flex align-items-center">
 
                             <div class="nav-item dropdown flag-nav nav-item-box nav-item-box-home me-3">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button"
-  tabIndex="0"
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                                    tabIndex="0"
                                     role="button">
                                     <i class="ti ti-sun-high"></i>
                                     <i class="ti ti-moon"></i>
@@ -120,14 +112,14 @@ export const UserHeader = () => {
                                 <ul class="dropdown-menu p-2">
                                     <li class="mb-1">
                                         <a role="button"
-  tabIndex="0" class="dropdown-item active theme-toggle rounded-2"
+                                            tabIndex="0" class="dropdown-item active theme-toggle rounded-2"
                                             id="light-mode-toggle">
                                             <i class="ti ti-sun-high me-2"></i>Light Mode
                                         </a>
                                     </li>
                                     <li>
                                         <a role="button"
-  tabIndex="0" class="dropdown-item theme-toggle rounded-2"
+                                            tabIndex="0" class="dropdown-item theme-toggle rounded-2"
                                             id="dark-mode-toggle">
                                             <i class="ti ti-moon me-2"></i>Dark Mode
                                         </a>
@@ -136,7 +128,7 @@ export const UserHeader = () => {
                             </div>
                             <ul class="nav header-navbar-rht">
                                 <li class="nav-item">
-                                    <a class="btn btn-light d-inline-flex align-items-center" href="signin.html"><i
+                                    <a class="btn btn-light d-inline-flex align-items-center" href="/login"><i
                                         class="ti ti-lock me-1"></i>Sign In</a>
                                 </li>
                                 <li class="nav-item">
