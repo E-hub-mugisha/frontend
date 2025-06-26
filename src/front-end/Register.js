@@ -6,6 +6,7 @@ const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const {http, setToken} = AuthUser();
+    const [form, setForm] = useState({ id: null, name: '', email: '', password: '', role: 'user', active: true });
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
@@ -14,8 +15,7 @@ const Register = () => {
         try {
 
             const res = http.post('/register', {
-                name,
-                email,
+                ...form,
                 password,
                 password_confirmation: passwordConfirmation
             });
@@ -89,6 +89,20 @@ const Register = () => {
                                                 <input type="email" className="form-control floating" value={email} onChange={e => setEmail(e.target.value)} />
                                             </div>
                                         </div>
+                                        <div className="mb-3">
+                <label>Role</label>
+                <select className="form-select" value={form.role} onChange={(e) => setForm({ ...form, role: e.target.value })}>
+                  <option value="admin">Admin</option>
+                  <option value="user">User</option>
+                </select>
+              </div>
+              <div className="mb-3">
+                <label>Status</label>
+                <select className="form-select" value={form.active} onChange={(e) => setForm({ ...form, active: e.target.value === 'true' })}>
+                  <option value="true">Active</option>
+                  <option value="false">Inactive</option>
+                </select>
+              </div>
                                         <div>
                                             <label className="form-label">Password</label>
                                             <div className="form-wrap form-focus pass-group">
