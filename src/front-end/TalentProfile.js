@@ -258,280 +258,103 @@ const TalentProfile = () => {
                                                     <div class="row aos aos-init aos-animate" data-aos="fade-up"
                                                         data-aos-delay="500">
                                                         <div class="col-md-12">
-
-                                                            <div
-                                                                class="card mb-4 shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
-
-                                                                <div class="position-relative" style={{ flex: '0 0 200px' }}>
-                                                                    <div class="owl-carousel owl-theme img-slider">
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-04.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-06.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-07.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-
-                                                                    <div class="position-absolute top-0 start-0 m-2">
-                                                                        <span class="badge bg-warning me-1"><i
-                                                                            class="feather-star"></i> Featured</span>
-                                                                        <span class="badge bg-danger"><i
-                                                                            class="fa-solid fa-meteor"></i> Hot</span>
-                                                                    </div>
-
-
-                                                                    <div class="position-absolute bottom-0 start-0 m-2">
-                                                                        <a href="buyer-profile.html">
-                                                                            <img src="assets/img/user/user-01.jpg"
-                                                                                class="rounded-circle" width="40"
-                                                                                alt="User" />
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="flex-grow-1">
+                                                            {talent.skills && talent.skills.length > 0 ? (
+                                                                talent.skills.map((skill) => (
                                                                     <div
-                                                                        class="d-flex justify-content-between align-items-start">
-                                                                        <div>
-                                                                            <a href="service-details.html"
-                                                                                class="badge bg-primary-light mb-2">Programming
-                                                                                & Tech</a>
-                                                                            <p class="mb-1 text-muted"><i
-                                                                                class="ti ti-map-pin-check me-1"></i>
-                                                                                Newyork</p>
+                                                                        key={skill.id}
+                                                                        className="card mb-4 shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3"
+                                                                    >
+                                                                        <div className="position-relative" style={{ flex: "0 0 200px" }}>
+                                                                            <div className="owl-carousel owl-theme img-slider">
+                                                                                <div className="item">
+                                                                                    <a href={`/talent/skills/${skill.id}`}>
+                                                                                        <img
+                                                                                            src="/assets/img/gigs/gigs-04.jpg"
+                                                                                            className="img-fluid rounded-3"
+                                                                                            alt="img"
+                                                                                        />
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div className="position-absolute top-0 start-0 m-2">
+                                                                                <span className="badge bg-warning me-1">
+                                                                                    <i className="feather-star"></i> Featured
+                                                                                </span>
+                                                                                <span className="badge bg-danger">
+                                                                                    <i className="fa-solid fa-meteor"></i> {skill.level}
+                                                                                </span>
+                                                                            </div>
+
+                                                                            <div className="position-absolute bottom-0 start-0 m-2">
+                                                                                <a href={`/talent/${talent.id}`}>
+                                                                                    <img
+                                                                                        src="/assets/img/user/user-01.jpg"
+                                                                                        className="rounded-circle"
+                                                                                        width="40"
+                                                                                        alt="User"
+                                                                                    />
+                                                                                </a>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="d-flex gap-2">
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-video"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-danger"><i
-                                                                                    class="feather-heart"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-share-2"></i></a>
-                                                                        </div>
-                                                                    </div>
 
-                                                                    <h5 class="mb-2">
-                                                                        <a href="service-details.html"
-                                                                            class="text-dark text-decoration-none">
-                                                                            I will do english or german transcript of any
-                                                                            audio file or video
-                                                                        </a>
-                                                                    </h5>
+                                                                        <div className="flex-grow-1">
+                                                                            <div className="d-flex justify-content-between align-items-start">
+                                                                                <div>
+                                                                                    <a
+                                                                                        href={`/talent/skills/${skill.id}`}
+                                                                                        className="badge bg-primary-light mb-2"
+                                                                                    >
+                                                                                        {skill.category || "Uncategorized"}
+                                                                                    </a>
+                                                                                    <p className="mb-1 text-muted">
+                                                                                        <i className="ti ti-map-pin-check me-1"></i>
+                                                                                        {skill.tags}
+                                                                                    </p>
+                                                                                </div>
+                                                                                <div className="d-flex gap-2">
+                                                                                    <a role="button" tabIndex="0" className="text-muted">
+                                                                                        <i className="feather-video"></i>
+                                                                                    </a>
+                                                                                    <a role="button" tabIndex="0" className="text-danger">
+                                                                                        <i className="feather-heart"></i>
+                                                                                    </a>
+                                                                                    <a role="button" tabIndex="0" className="text-muted">
+                                                                                        <i className="feather-share-2"></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
 
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-center">
-                                                                        <div>
-                                                                            <span class="text-warning"><i
-                                                                                class="fa-solid fa-star"></i></span>
-                                                                            <small class="text-muted">5.0 (28
-                                                                                Reviews)</small>
-                                                                            <span class="badge bg-secondary ms-2">Delivery
-                                                                                in 1 day</span>
-                                                                        </div>
-                                                                        <h6 class="mb-0 text-success">$780</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                                            <h5 className="mb-2">
+                                                                                <a
+                                                                                    href={`/talent/skills/${skill.id}`}
+                                                                                    className="text-dark text-decoration-none"
+                                                                                >
+                                                                                    {skill.name}
+                                                                                </a>
+                                                                            </h5>
 
-                                                            <div
-                                                                class="card mb-4 shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
-
-                                                                <div class="position-relative" style={{ flex: '0 0 200px' }}>
-                                                                    <div class="owl-carousel owl-theme img-slider">
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-04.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-06.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-07.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-
-                                                                    <div class="position-absolute top-0 start-0 m-2">
-                                                                        <span class="badge bg-warning me-1"><i
-                                                                            class="feather-star"></i> Featured</span>
-                                                                        <span class="badge bg-danger"><i
-                                                                            class="fa-solid fa-meteor"></i> Hot</span>
-                                                                    </div>
-
-
-                                                                    <div class="position-absolute bottom-0 start-0 m-2">
-                                                                        <a href="buyer-profile.html">
-                                                                            <img src="assets/img/user/user-01.jpg"
-                                                                                class="rounded-circle" width="40"
-                                                                                alt="User" />
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="flex-grow-1">
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-start">
-                                                                        <div>
-                                                                            <a href="service-details.html"
-                                                                                class="badge bg-primary-light mb-2">Programming
-                                                                                & Tech</a>
-                                                                            <p class="mb-1 text-muted"><i
-                                                                                class="ti ti-map-pin-check me-1"></i>
-                                                                                Newyork</p>
-                                                                        </div>
-                                                                        <div class="d-flex gap-2">
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-video"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-danger"><i
-                                                                                    class="feather-heart"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-share-2"></i></a>
+                                                                            <div className="d-flex justify-content-between align-items-center">
+                                                                                <div>
+                                                                                    <span className="text-warning">
+                                                                                        <i className="fa-solid fa-star"></i>
+                                                                                    </span>
+                                                                                    <small className="text-muted">
+                                                                                        5.0 (28 Reviews)
+                                                                                    </small>
+                                                                                    <span className="badge bg-secondary ms-2">
+                                                                                        Delivery in 1 day
+                                                                                    </span>
+                                                                                </div>
+                                                                                <h6 className="mb-0 text-success">$780</h6>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+                                                                ))
+                                                            ) : (
+                                                                <p>No skills found.</p>
+                                                            )}
 
-                                                                    <h5 class="mb-2">
-                                                                        <a href="service-details.html"
-                                                                            class="text-dark text-decoration-none">
-                                                                            I will do english or german transcript of any
-                                                                            audio file or video
-                                                                        </a>
-                                                                    </h5>
-
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-center">
-                                                                        <div>
-                                                                            <span class="text-warning"><i
-                                                                                class="fa-solid fa-star"></i></span>
-                                                                            <small class="text-muted">5.0 (28
-                                                                                Reviews)</small>
-                                                                            <span class="badge bg-secondary ms-2">Delivery
-                                                                                in 1 day</span>
-                                                                        </div>
-                                                                        <h6 class="mb-0 text-success">$780</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div
-                                                                class="card mb-4 shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
-
-                                                                <div class="position-relative" style={{ flex: '0 0 200px' }}>
-                                                                    <div class="owl-carousel owl-theme img-slider">
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-04.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-06.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-07.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-
-                                                                    <div class="position-absolute top-0 start-0 m-2">
-                                                                        <span class="badge bg-warning me-1"><i
-                                                                            class="feather-star"></i> Featured</span>
-                                                                        <span class="badge bg-danger"><i
-                                                                            class="fa-solid fa-meteor"></i> Hot</span>
-                                                                    </div>
-
-
-                                                                    <div class="position-absolute bottom-0 start-0 m-2">
-                                                                        <a href="buyer-profile.html">
-                                                                            <img src="assets/img/user/user-01.jpg"
-                                                                                class="rounded-circle" width="40"
-                                                                                alt="img" />
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="flex-grow-1">
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-start">
-                                                                        <div>
-                                                                            <a href="service-details.html"
-                                                                                class="badge bg-primary-light mb-2">Programming
-                                                                                & Tech</a>
-                                                                            <p class="mb-1 text-muted"><i
-                                                                                class="ti ti-map-pin-check me-1"></i>
-                                                                                Newyork</p>
-                                                                        </div>
-                                                                        <div class="d-flex gap-2">
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-video"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-danger"><i
-                                                                                    class="feather-heart"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-share-2"></i></a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <h5 class="mb-2">
-                                                                        <a href="service-details.html"
-                                                                            class="text-dark text-decoration-none">
-                                                                            I will do english or german transcript of any
-                                                                            audio file or video
-                                                                        </a>
-                                                                    </h5>
-
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-center">
-                                                                        <div>
-                                                                            <span class="text-warning"><i
-                                                                                class="fa-solid fa-star"></i></span>
-                                                                            <small class="text-muted">5.0 (28
-                                                                                Reviews)</small>
-                                                                            <span class="badge bg-secondary ms-2">Delivery
-                                                                                in 1 day</span>
-                                                                        </div>
-                                                                        <h6 class="mb-0 text-success">$780</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
 
                                                         </div>
                                                     </div>
@@ -1132,280 +955,101 @@ const TalentProfile = () => {
                                                     <div class="row aos aos-init aos-animate" data-aos="fade-up"
                                                         data-aos-delay="500">
                                                         <div class="col-md-12">
+                                                            {talent.stories && talent.stories.length > 0 ? (
+                                                                talent.stories.map((skill) => (
+                                                                    <div key={skill.id}
+                                                                        class="card mb-4 shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
 
-                                                            <div
-                                                                class="card mb-4 shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
+                                                                        <div class="position-relative" style={{ flex: '0 0 200px' }}>
+                                                                            <div class="owl-carousel owl-theme img-slider">
+                                                                                <div class="item">
+                                                                                    <a href="service-details.html">
+                                                                                        <img src="assets/img/gigs/gigs-04.jpg"
+                                                                                            class="img-fluid rounded-3" alt="img" />
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="item">
+                                                                                    <a href="service-details.html">
+                                                                                        <img src="assets/img/gigs/gigs-06.jpg"
+                                                                                            class="img-fluid rounded-3" alt="img" />
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="item">
+                                                                                    <a href="service-details.html">
+                                                                                        <img src="assets/img/gigs/gigs-07.jpg"
+                                                                                            class="img-fluid rounded-3" alt="img" />
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
 
-                                                                <div class="position-relative" style={{ flex: '0 0 200px' }}>
-                                                                    <div class="owl-carousel owl-theme img-slider">
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-04.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
+
+                                                                            <div class="position-absolute top-0 start-0 m-2">
+                                                                                <span class="badge bg-warning me-1"><i
+                                                                                    class="feather-star"></i> Featured</span>
+                                                                                <span class="badge bg-danger"><i
+                                                                                    class="fa-solid fa-meteor"></i> {skill.level}</span>
+                                                                            </div>
+
+
+                                                                            <div class="position-absolute bottom-0 start-0 m-2">
+                                                                                <a href="buyer-profile.html">
+                                                                                    <img src="assets/img/user/user-01.jpg"
+                                                                                        class="rounded-circle" width="40"
+                                                                                        alt="img" />
+                                                                                </a>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-06.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-07.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
 
 
-                                                                    <div class="position-absolute top-0 start-0 m-2">
-                                                                        <span class="badge bg-warning me-1"><i
-                                                                            class="feather-star"></i> Featured</span>
-                                                                        <span class="badge bg-danger"><i
-                                                                            class="fa-solid fa-meteor"></i> Hot</span>
-                                                                    </div>
+                                                                        <div class="flex-grow-1">
+                                                                            <div
+                                                                                class="d-flex justify-content-between align-items-start">
+                                                                                <div>
+                                                                                    <a href="service-details.html"
+                                                                                        class="badge bg-primary-light mb-2">{skill.category || "Uncategorized"}</a>
+                                                                                    <p class="mb-1 text-muted"><i
+                                                                                        class="ti ti-map-pin-check me-1"></i>
+                                                                                        {skill.tags}</p>
+                                                                                </div>
+                                                                                <div class="d-flex gap-2">
+                                                                                    <a role="button"
+                                                                                        tabIndex="0" class="text-muted"><i
+                                                                                            class="feather-video"></i></a>
+                                                                                    <a role="button"
+                                                                                        tabIndex="0" class="text-danger"><i
+                                                                                            class="feather-heart"></i></a>
+                                                                                    <a role="button"
+                                                                                        tabIndex="0" class="text-muted"><i
+                                                                                            class="feather-share-2"></i></a>
+                                                                                </div>
+                                                                            </div>
 
+                                                                            <h5 class="mb-2">
+                                                                                <a href="service-details.html"
+                                                                                    class="text-dark text-decoration-none">
+                                                                                    {skill.title}
+                                                                                </a>
+                                                                            </h5>
 
-                                                                    <div class="position-absolute bottom-0 start-0 m-2">
-                                                                        <a href="buyer-profile.html">
-                                                                            <img src="assets/img/user/user-01.jpg"
-                                                                                class="rounded-circle" width="40"
-                                                                                alt="img" />
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="flex-grow-1">
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-start">
-                                                                        <div>
-                                                                            <a href="service-details.html"
-                                                                                class="badge bg-primary-light mb-2">Programming
-                                                                                & Tech</a>
-                                                                            <p class="mb-1 text-muted"><i
-                                                                                class="ti ti-map-pin-check me-1"></i>
-                                                                                Newyork</p>
-                                                                        </div>
-                                                                        <div class="d-flex gap-2">
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-video"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-danger"><i
-                                                                                    class="feather-heart"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-share-2"></i></a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <h5 class="mb-2">
-                                                                        <a href="service-details.html"
-                                                                            class="text-dark text-decoration-none">
-                                                                            I will do english or german transcript of any
-                                                                            audio file or video
-                                                                        </a>
-                                                                    </h5>
-
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-center">
-                                                                        <div>
-                                                                            <span class="text-warning"><i
-                                                                                class="fa-solid fa-star"></i></span>
-                                                                            <small class="text-muted">5.0 (28
-                                                                                Reviews)</small>
-                                                                            <span class="badge bg-secondary ms-2">Delivery
-                                                                                in 1 day</span>
-                                                                        </div>
-                                                                        <h6 class="mb-0 text-success">$780</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div
-                                                                class="card mb-4 shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
-
-                                                                <div class="position-relative" style={{ flex: '0 0 200px' }}>
-                                                                    <div class="owl-carousel owl-theme img-slider">
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-04.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-06.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-07.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
+                                                                            <div
+                                                                                class="d-flex justify-content-between align-items-center">
+                                                                                <div>
+                                                                                    <span class="text-warning"><i
+                                                                                        class="fa-solid fa-star"></i></span>
+                                                                                    <small class="text-muted">5.0 (28
+                                                                                        Reviews)</small>
+                                                                                    <span class="badge bg-secondary ms-2">Delivery
+                                                                                        in 1 day</span>
+                                                                                </div>
+                                                                                <h6 class="mb-0 text-success">$780</h6>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
 
-
-                                                                    <div class="position-absolute top-0 start-0 m-2">
-                                                                        <span class="badge bg-warning me-1"><i
-                                                                            class="feather-star"></i> Featured</span>
-                                                                        <span class="badge bg-danger"><i
-                                                                            class="fa-solid fa-meteor"></i> Hot</span>
-                                                                    </div>
-
-
-                                                                    <div class="position-absolute bottom-0 start-0 m-2">
-                                                                        <a href="buyer-profile.html">
-                                                                            <img src="assets/img/user/user-01.jpg"
-                                                                                class="rounded-circle" width="40"
-                                                                                alt="img" />
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="flex-grow-1">
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-start">
-                                                                        <div>
-                                                                            <a href="service-details.html"
-                                                                                class="badge bg-primary-light mb-2">Programming
-                                                                                & Tech</a>
-                                                                            <p class="mb-1 text-muted"><i
-                                                                                class="ti ti-map-pin-check me-1"></i>
-                                                                                Newyork</p>
-                                                                        </div>
-                                                                        <div class="d-flex gap-2">
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-video"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-danger"><i
-                                                                                    class="feather-heart"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-share-2"></i></a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <h5 class="mb-2">
-                                                                        <a href="service-details.html"
-                                                                            class="text-dark text-decoration-none">
-                                                                            I will do english or german transcript of any
-                                                                            audio file or video
-                                                                        </a>
-                                                                    </h5>
-
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-center">
-                                                                        <div>
-                                                                            <span class="text-warning"><i
-                                                                                class="fa-solid fa-star"></i></span>
-                                                                            <small class="text-muted">5.0 (28
-                                                                                Reviews)</small>
-                                                                            <span class="badge bg-secondary ms-2">Delivery
-                                                                                in 1 day</span>
-                                                                        </div>
-                                                                        <h6 class="mb-0 text-success">$780</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div
-                                                                class="card mb-4 shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
-
-                                                                <div class="position-relative" style={{ flex: '0 0 200px' }}>
-                                                                    <div class="owl-carousel owl-theme img-slider">
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-04.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-06.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="item">
-                                                                            <a href="service-details.html">
-                                                                                <img src="assets/img/gigs/gigs-07.jpg"
-                                                                                    class="img-fluid rounded-3" alt="img" />
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-
-
-                                                                    <div class="position-absolute top-0 start-0 m-2">
-                                                                        <span class="badge bg-warning me-1"><i
-                                                                            class="feather-star"></i> Featured</span>
-                                                                        <span class="badge bg-danger"><i
-                                                                            class="fa-solid fa-meteor"></i> Hot</span>
-                                                                    </div>
-
-
-                                                                    <div class="position-absolute bottom-0 start-0 m-2">
-                                                                        <a href="buyer-profile.html">
-                                                                            <img src="assets/img/user/user-01.jpg"
-                                                                                class="rounded-circle" width="40"
-                                                                                alt="img" />
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-
-
-                                                                <div class="flex-grow-1">
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-start">
-                                                                        <div>
-                                                                            <a href="service-details.html"
-                                                                                class="badge bg-primary-light mb-2">Programming
-                                                                                & Tech</a>
-                                                                            <p class="mb-1 text-muted"><i
-                                                                                class="ti ti-map-pin-check me-1"></i>
-                                                                                Newyork</p>
-                                                                        </div>
-                                                                        <div class="d-flex gap-2">
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-video"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-danger"><i
-                                                                                    class="feather-heart"></i></a>
-                                                                            <a role="button"
-                                                                                tabIndex="0" class="text-muted"><i
-                                                                                    class="feather-share-2"></i></a>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <h5 class="mb-2">
-                                                                        <a href="service-details.html"
-                                                                            class="text-dark text-decoration-none">
-                                                                            I will do english or german transcript of any
-                                                                            audio file or video
-                                                                        </a>
-                                                                    </h5>
-
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-center">
-                                                                        <div>
-                                                                            <span class="text-warning"><i
-                                                                                class="fa-solid fa-star"></i></span>
-                                                                            <small class="text-muted">5.0 (28
-                                                                                Reviews)</small>
-                                                                            <span class="badge bg-secondary ms-2">Delivery
-                                                                                in 1 day</span>
-                                                                        </div>
-                                                                        <h6 class="mb-0 text-success">$780</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                                ))
+                                                            ) : (
+                                                                <p>No skills found.</p>
+                                                            )}
 
                                                         </div>
                                                     </div>
@@ -2266,241 +1910,7 @@ const TalentProfile = () => {
 
                         </div>
 
-
-
                     </div>
-
-
-                    <div class="recent-works">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="title-sec">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-8">
-                                            <h3>Recent Works</h3>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="owl-nav worknav nav-control nav-top"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gigs-slider owl-carousel">
-                                    <div class="gigs-grid">
-                                        <div class="gigs-img">
-                                            <div class="img-slider">
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-13.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-06.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-07.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                            </div>
-                                            <div class="card-overlay-badge">
-                                                <a href="service.html"><span class="badge bg-danger"><i
-                                                    class="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div class="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0" class="video-icon"><i
-                                                        class="feather-video"></i></a>
-                                                <a role="button"
-                                                    tabIndex="0" class="fav-icon"><i
-                                                        class="feather-heart"></i></a>
-                                            </div>
-                                            <div class="user-thumb">
-                                                <a href="talent-profile.html"><img src="assets/img/user/user-10.jpg"
-                                                    alt="img" /></a>
-                                            </div>
-                                        </div>
-                                        <div class="gigs-content">
-                                            <div class="gigs-info">
-                                                <a href="service.html"><span class="badge bg-primary-light">Video
-                                                    Marketing</span></a>
-                                                <p><i class="ti ti-map-pin-check"></i>Chicago</p>
-                                            </div>
-                                            <div class="gigs-title">
-                                                <h3><a href="service-details.html">I will do creating and promoting video
-                                                    content to engage audiences</a></h3>
-                                            </div>
-                                            <div class="star-rate">
-                                                <span><i class="fa-solid fa-star"></i>4.2 (65 Reviews)</span>
-                                            </div>
-                                            <div class="gigs-card-footer">
-                                                <div>
-                                                    <a role="button"
-                                                        tabIndex="0" class="share-icon"><i
-                                                            class="feather-share-2"></i></a>
-                                                    <span class="badge">Delivery in 1 day</span>
-                                                </div>
-                                                <h5>$600</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gigs-grid">
-                                        <div class="gigs-img">
-                                            <div class="img-slider">
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-14.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-08.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-09.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                            </div>
-                                            <div class="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0" class="fav-icon"><i
-                                                        class="feather-heart"></i></a>
-                                            </div>
-                                            <div class="user-thumb">
-                                                <a href="talent-profile.html"><img src="assets/img/user/user-06.jpg"
-                                                    alt="img" /></a>
-                                            </div>
-                                        </div>
-                                        <div class="gigs-content">
-                                            <div class="gigs-info">
-                                                <a href="service.html"><span class="badge bg-primary-light">Local
-                                                    SEO</span></a>
-                                                <p><i class="ti ti-map-pin-check"></i>Moscow</p>
-                                            </div>
-                                            <div class="gigs-title">
-                                                <h3><a href="service-details.html">Optimizing online presence to enhance
-                                                    visibility in local search...</a></h3>
-                                            </div>
-                                            <div class="star-rate">
-                                                <span><i class="fa-solid fa-star"></i>4.3 (22 Reviews)</span>
-                                            </div>
-                                            <div class="gigs-card-footer">
-                                                <div>
-                                                    <a role="button"
-                                                        tabIndex="0" class="share-icon"><i
-                                                            class="feather-share-2"></i></a>
-                                                    <span class="badge">Delivery in 2 day</span>
-                                                </div>
-                                                <h5>$550</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gigs-grid">
-                                        <div class="gigs-img">
-                                            <div class="img-slider">
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-15.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-10.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-11.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                            </div>
-                                            <div class="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0" class="fav-icon"><i
-                                                        class="feather-heart"></i></a>
-                                            </div>
-                                            <div class="user-thumb">
-                                                <a href="talent-profile.html"><img src="assets/img/user/user-03.jpg"
-                                                    alt="img" /></a>
-                                            </div>
-                                        </div>
-                                        <div class="gigs-content">
-                                            <div class="gigs-info">
-                                                <a href="service.html"><span class="badge bg-primary-light">Mobile
-                                                    Marketing</span></a>
-                                                <p><i class="ti ti-map-pin-check"></i>Norwich</p>
-                                            </div>
-                                            <div class="gigs-title">
-                                                <h3><a href="service-details.html">Optimizing marketing strategies for
-                                                    mobiles & app based promotions</a></h3>
-                                            </div>
-                                            <div class="star-rate">
-                                                <span><i class="fa-solid fa-star"></i>4.6 (475 Reviews)</span>
-                                            </div>
-                                            <div class="gigs-card-footer">
-                                                <div>
-                                                    <a role="button"
-                                                        tabIndex="0" class="share-icon"><i
-                                                            class="feather-share-2"></i></a>
-                                                    <span class="badge">Delivery in 1 day</span>
-                                                </div>
-                                                <h5>$720</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="gigs-grid">
-                                        <div class="gigs-img">
-                                            <div class="img-slider">
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-04.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-01.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                                <div class="slide-images">
-                                                    <a href="service-details.html"><img src="assets/img/gigs/gigs-02.jpg"
-                                                        class="img-fluid" alt="img" /></a>
-                                                </div>
-                                            </div>
-                                            <div class="card-overlay-badge">
-                                                <span class="badge bg-danger"><i class="fa-solid fa-meteor"></i>Hot</span>
-                                            </div>
-                                            <div class="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0" class="fav-icon"><i
-                                                        class="feather-heart"></i></a>
-                                            </div>
-                                            <div class="user-thumb">
-                                                <a href="talent-profile.html"><img src="assets/img/user/user-04.jpg"
-                                                    alt="img" /></a>
-                                            </div>
-                                        </div>
-                                        <div class="gigs-content">
-                                            <div class="gigs-info">
-                                                <a href="service.html"><span class="badge bg-primary-light">Digital
-                                                    Marketing</span></a>
-                                                <p><i class="ti ti-map-pin-check"></i>Indonesia</p>
-                                            </div>
-                                            <div class="gigs-title">
-                                                <h3><a href="service-details.html">Embedded Android & AOSP
-                                                    customizations</a></h3>
-                                            </div>
-                                            <div class="star-rate">
-                                                <span><i class="fa-solid fa-star"></i>4.5 (40 Reviews)</span>
-                                            </div>
-                                            <div class="gigs-card-footer">
-                                                <div>
-                                                    <a role="button"
-                                                        tabIndex="0" class="share-icon"><i
-                                                            class="feather-share-2"></i></a>
-                                                    <span class="badge">Delivery in 2 day</span>
-                                                </div>
-                                                <h5>$900</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
 
                 </div>
             </div>

@@ -28,6 +28,11 @@ import UserAuth from './components/user/UserAuth';
 import Login from './front-end/Login';
 import Register from './front-end/Register';
 import ForgotPassword from './front-end/ForgotPassword';
+import Skills from './front-end/Skills';
+import CategorySkills from './front-end/CategorySkills';
+import FrontSkillDetails from './front-end/FrontSkillDetails';
+import CategoryStory from './front-end/CategoryStory';
+import CategoryTalents from './front-end/CategoryTalents';
 
 function App() {
   return (
@@ -40,43 +45,28 @@ function App() {
         <Route path="/admin/stories/:id/edit" element={<AdminLayout><StoryCreateEditForm /></AdminLayout>} />
         <Route path="/admin/stories/:id" element={<AdminLayout><StoryDetail /></AdminLayout>} />
         <Route path="/admin/skills" element={<AdminLayout><SkillManagement /></AdminLayout>} />
-        <Route path="/admin/announcements" element={<AdminLayout><AnnouncementManagement/></AdminLayout>} />
-        <Route
-          path="/admin/skills/:id"
-          element={
-            <AdminLayout>
-              <SkillDetail />
-            </AdminLayout>
-          }
-        />
-        <Route
-          path="/admin/users"
-          element={
-            <AdminLayout>
-              <UserManagement />
-            </AdminLayout>
-          }
-        />
-        <Route
-          path="/admin/categories"
-          element={
-            <AdminLayout>
-              <CategoryManagement />
-            </AdminLayout>
-          }
-        />
+        <Route path="/admin/announcements" element={<AdminLayout><AnnouncementManagement /></AdminLayout>} />
+        <Route path="/admin/skills/:id" element={<AdminLayout><SkillDetail /></AdminLayout>} />
+        <Route path="/admin/users" element={<AdminLayout><UserManagement /></AdminLayout>} />
+        <Route path="/admin/categories" element={<AdminLayout><CategoryManagement /></AdminLayout>}/>
+        
         {/* Default route redirect */}
         <Route path="/" element={<UserLayout><Home /></UserLayout>} />
         <Route path="/contact" element={<UserLayout><Contact /></UserLayout>} />
         <Route path="/about" element={<UserLayout><About /></UserLayout>} />
         <Route path="/talents" element={<UserLayout><Talents /></UserLayout>} />
         <Route path="/talent/:id" element={<UserLayout><TalentProfile /></UserLayout>} />
+        <Route path="/talents/category/:slug" element={<UserLayout><CategoryTalents/></UserLayout>} />
         <Route path="/talent/skills/:id" element={<UserLayout><TalentSkillDetail /></UserLayout>} />
-        <Route path="/register_as_talent" element={<UserLayout><RegisterAsTalent/></UserLayout>} />
-        <Route path="/announcements" element={<UserLayout><Announcement/></UserLayout>} />
+        <Route path="/register_as_talent" element={<UserLayout><RegisterAsTalent /></UserLayout>} />
+        <Route path="/announcements" element={<UserLayout><Announcement /></UserLayout>} />
         <Route path="/stories" element={<UserLayout><Stories /></UserLayout>} />
         <Route path="/story-details/:slug" element={<UserLayout><FrontStoryDetail /></UserLayout>} />
+        <Route path="/story/category/:slug" element={<UserLayout><CategoryStory/></UserLayout>} />
         <Route path="upload-story" element={<UserLayout><UploadStory /></UserLayout>} />
+        <Route path="/skills" element={<UserLayout><Skills/></UserLayout>}/>
+        <Route path="/skills/:slug" element={<UserLayout><FrontSkillDetails/></UserLayout>} />
+        <Route path="/skills/category/:slug" element={<UserLayout><CategorySkills/></UserLayout>} />
         <Route path="*" element={<UserLayout><Home /></UserLayout>} />
 
         <Route path="/login" element={<UserAuth><Login /></UserAuth>} />

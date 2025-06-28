@@ -299,8 +299,8 @@ const AdminSidebar = () => {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="seller-transactions.html">
-                                            <i class="ti ti-transition-top me-2"></i> <span>Transactions </span>
+                                        <a href="/admin/banners">
+                                            <i class="ti ti-transition-top me-2"></i> <span>Banners </span>
                                         </a>
                                     </li>
                                     <li>

@@ -66,7 +66,7 @@ export const UserHeader = () => {
                                             <a role="button"
                                                 tabIndex="0">Talent Categories </a>
                                             <ul class="submenu">
-                                                {categories.map((cat) => (<li><a href="talents.html?category=music">{cat.name}</a></li>
+                                                {categories.map((cat) => (<li><a href={`/talents/category/${cat.slug}`}>{cat.name}</a></li>
                                                 ))}
                                             </ul>
                                         </li>
@@ -87,14 +87,28 @@ export const UserHeader = () => {
                                             <a role="button"
                                                 tabIndex="0">Story Categories </a>
                                             <ul class="submenu">
-                                                {categories.map((cat) => (<li><a href="Storys.html?category=music">{cat.name}</a></li>
+                                                {categories.map((cat) => (<li><a href={`/story/category/${cat.slug}`}>{cat.name}</a></li>
                                                 ))}
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
 
-
+                                <li class="has-submenu">
+                                    <a role="button"
+                                        tabIndex="0">Skills <i class="fas fa-chevron-down"></i></a>
+                                    <ul class="submenu">
+                                        <li><a href="/skills">All Skills</a></li>
+                                        <li class="has-submenu">
+                                            <a role="button"
+                                                tabIndex="0">Skills Categories </a>
+                                            <ul class="submenu">
+                                                {categories.map((cat) => (<li><a href={`/skills/category/${cat.slug}`}>{cat.name}</a></li>
+                                                ))}
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
 
                             </ul>
 

@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import api from '../publicApi'; // ✅ correct import
+import TalentCategoryCount from './TalentCategoryCount';
 
 
 const Home = () => {
     const [talents, setTalents] = useState([]);
     const [categories, setCategories] = useState([]);
     const [skills, setSkills] = useState([]);
+    const [testimonials, setTestimonials] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [activeCategory, setActiveCategory] = useState("All Skills");
 
     useEffect(() => {
         fetchTalents();
         fetchCategories();
         fetchSkills();
+        fetchTestimonials();
     }, []);
 
     const fetchTalents = async () => {
@@ -34,6 +38,18 @@ const Home = () => {
         }
     };
 
+
+    const fetchTestimonials = async () => {
+        try {
+            const res = await api.get('/testimonials/random');
+            setTestimonials(res.data);
+        } catch (error) {
+            console.error('Error fetching testimonials:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const fetchSkills = async () => {
         try {
             const res = await api.get('/skills');
@@ -43,7 +59,28 @@ const Home = () => {
         }
     };
 
-   
+    // Create a map of category_id => category_name for quick lookup
+    const categoryMap = categories.reduce((acc, cat) => {
+        acc[cat.id] = cat.name;
+        return acc;
+    }, {});
+
+    // Categories for tabs, with 'All Skills' prepended
+    const skillsCategories = ["All Skills", ...categories.map((cat) => cat.name)];
+
+    // Filter skills by active category name (using category_id to match)
+    const getFilteredSkills = (categoryName) => {
+        if (categoryName === "All Skills") return skills;
+
+        const category = categories.find((cat) => cat.name === categoryName);
+        if (!category) return [];
+
+        return skills.filter((skill) => skill.category_id === category.id);
+    };
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div>
 
@@ -58,7 +95,7 @@ const Home = () => {
 
                                     <div className="col-lg-7">
                                         <div className="banner-content" data-aos="fade-up">
-                                            <img src="assets/img/home/banner-shape-1.svg" alt="decorative shape"
+                                            <img src="/assets/img/home/banner-shape-1.svg" alt="decorative shape"
                                                 className="img-fluid banner-bg-1 d-none d-lg-flex" />
                                             <span className="d-inline-flex mb-3 align-items-center hero-title">
                                                 <i className="ti ti-point-filled me-1"></i>Empowering Young Talents
@@ -96,7 +133,7 @@ const Home = () => {
                                 <div className="row align-items-center">
                                     <div className="col-lg-7">
                                         <div className="banner-content" data-aos="fade-up">
-                                            <img src="assets/img/home/banner-shape-1.svg" alt="decorative shape"
+                                            <img src="/assets/img/home/banner-shape-1.svg" alt="decorative shape"
                                                 className="img-fluid banner-bg-1 d-none d-lg-flex" />
                                             <span className="d-inline-flex mb-3 align-items-center hero-title">
                                                 <i className="ti ti-point-filled me-1"></i>Inspire the World
@@ -144,10 +181,8 @@ const Home = () => {
                                     <label>Explore</label>
                                     <select className="select">
                                         <option>Select Category</option>
-                                        <option>Talent Stories</option>
-                                        <option>Skill Courses</option>
-                                        <option>Mentorship</option>
-                                        <option>Creative Projects</option>
+                                        {categories.map((cat) => (<option>{cat.name}</option>
+                                        ))}
                                     </select>
                                 </div>
                                 <div className="input-block">
@@ -175,7 +210,7 @@ const Home = () => {
 
 
             <div className="client-slider-sec mt-5">
-                <img src="assets/img/bg/shape-09.png" alt="Shape" className="client-slider-img" />
+                <img src="/assets/img/bg/shape-09.png" alt="Shape" className="client-slider-img" />
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
@@ -197,7 +232,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item cloned" style={{
@@ -205,7 +240,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item cloned" style={{
@@ -213,7 +248,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item cloned" style={{
@@ -221,7 +256,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item cloned" style={{
@@ -229,7 +264,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item" style={{
@@ -237,7 +272,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item" style={{
@@ -245,7 +280,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item" style={{
@@ -253,7 +288,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item" style={{
@@ -261,7 +296,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item" style={{
@@ -269,7 +304,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item active" style={{
@@ -277,7 +312,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item active" style={{
@@ -285,7 +320,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item cloned active" style={{
@@ -293,7 +328,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item cloned active" style={{
@@ -301,7 +336,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item cloned active" style={{
@@ -309,7 +344,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item cloned" style={{
@@ -317,7 +352,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                         <div className="owl-item cloned" style={{
@@ -325,7 +360,7 @@ const Home = () => {
                                             marginRight: '24px'
                                         }}>
                                             <div className="client-logo">
-                                                <img src="assets/img/company/logo.svg" className="w-auto" alt="img" />
+                                                <img src="/assets/img/company/logo.svg" className="w-auto" alt="img" />
                                             </div>
                                         </div>
                                     </div>
@@ -349,19 +384,7 @@ const Home = () => {
                             className="title-bg2"></span></h2>
                         <p>Discover inspiring stories, impactful skills, and creative talent across Africa</p>
                     </div>
-                    <div
-                        className="row row-gap-4 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 align-items-center">
-                        {categories.map((cat) => (
-                            <div className="col d-flex">
-                                <div className="pop-category flex-fill" data-aos="flip-left">
-                                    <span><i className="ti ti-movie"></i></span>
-                                    <h6 className="mb-1"><a role="button"
-                                        tabIndex="0">{cat.name}</a></h6>
-                                    <p>85 Stories</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <TalentCategoryCount />
                 </div>
             </div>
 
@@ -390,7 +413,7 @@ const Home = () => {
                                                     <a href={`/talent/${talent.id}`}>
                                                         <img
                                                             className="rounded-pill"
-                                                            src="assets/img/user/profile.jpg"
+                                                            src="/assets/img/user/profile.jpg"
                                                             alt="img"
                                                             height="50"
                                                             width="50"
@@ -401,21 +424,21 @@ const Home = () => {
                                                 <h6 className="mb-1">
                                                     <a href={`/talent/${talent.id}`}>{talent.name}</a>
                                                 </h6>
-                                                <p>{talent.category ? talent.category.name : "Uncategorized"}</p>
+                                                <p>{talent.category?.name || 'Uncategorized'}</p>
                                                 <p className="mb-0 location-text d-inline-flex align-items-center">
                                                     <img
-                                                        src="assets/img/flags/flag-for-rwanda.svg"
+                                                        src="/assets/img/flags/flag-for-rwanda.svg"
                                                         alt="flag"
                                                         className="me-1"
                                                     />
                                                     Rwanda <i className="ti ti-point-filled mx-1"></i> Total Gigs: 45
                                                 </p>
                                                 <div className="d-flex gap-2 align-items-center flex-wrap mt-3 justify-content-center">
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Wordpress
+                                                    <a href={`/talent/${talent.id}`} className="badge bg-light">
+                                                        {talent.skill}
                                                     </a>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Figma
+                                                    <a href={`/talent/${talent.id}`} className="badge bg-light">
+                                                        {talent.language}
                                                     </a>
                                                 </div>
                                             </div>
@@ -440,7 +463,7 @@ const Home = () => {
                     <div className="row align-items-center">
                         <div className="col-lg-12">
                             <div className="how-it-works-content position-relative row">
-                                <img src="assets/img/home/shape-1.svg" alt="img" className="img-fluid how-it-works-bg" />
+                                <img src="/assets/img/home/shape-1.svg" alt="img" className="img-fluid how-it-works-bg" />
                                 <div className="section-header-two" data-aos="fade-up">
                                     <h2 className="mb-2"><span className="title-bg"></span>How It Works<span
                                         className="title-bg2"></span></h2>
@@ -492,33 +515,11 @@ const Home = () => {
             <div className="service-slider-section">
                 <div className="horizontal-slide d-flex" data-direction="right" data-speed="slow">
                     <div className="slide-list d-flex gap-4">
-                        <div className="p-3 px-4 d-flex align-items-center service-item">
-                            <h4>Storytelling</h4>
-                        </div>
-                        <div className="p-3 px-4 d-flex align-items-center service-item">
-                            <h4>Creative Writing</h4>
-                        </div>
-                        <div className="p-3 px-4 d-flex align-items-center service-item">
-                            <h4>Music & Performance</h4>
-                        </div>
-                        <div className="p-3 px-4 d-flex align-items-center service-item">
-                            <h4>Visual Arts</h4>
-                        </div>
-                        <div className="p-3 px-4 d-flex align-items-center service-item">
-                            <h4>Videography</h4>
-                        </div>
-                        <div className="p-3 px-4 d-flex align-items-center service-item">
-                            <h4>Graphic Design</h4>
-                        </div>
-                        <div className="p-3 px-4 d-flex align-items-center service-item">
-                            <h4>Fashion & Style</h4>
-                        </div>
-                        <div className="p-3 px-4 d-flex align-items-center service-item">
-                            <h4>Tech & Coding</h4>
-                        </div>
-                        <div className="p-3 px-4 d-flex align-items-center service-item">
-                            <h4>Entrepreneurship</h4>
-                        </div>
+                        {categories.map((cat) => (
+                            <div className="p-3 px-4 d-flex align-items-center service-item">
+                                <h4>{cat.name}</h4>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -532,1544 +533,129 @@ const Home = () => {
                     <div className="listing-tab" data-aos="fade-up">
                         <div className="listing-slider">
                             <ul className="nav nav-tabs justify-content-center">
-                                <li className="nav-item">
-                                    <a role="button"
-                                        tabIndex="0" className="nav-link active" data-bs-toggle="tab"
-                                        data-bs-target="#allservices">
-                                        All Skills
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a role="button"
-                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#writing_translation">
-                                        Writing & Translation
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a role="button"
-                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#ai_services">
-                                        AI Services
-                                    </a>
-                                </li>
-                                <li>
-                                    <a role="button"
-                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#graphics_design">
-                                        Graphics & Design
-                                    </a>
-                                </li>
-                                <li>
-                                    <a role="button"
-                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#data_analysis">
-                                        Data Analysis
-                                    </a>
-                                </li>
-                                <li>
-                                    <a role="button"
-                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#analytics_strategy">
-                                        Analytics & Strategy
-                                    </a>
-                                </li>
-                                <li>
-                                    <a role="button"
-                                        tabIndex="0" className="nav-link" data-bs-toggle="tab"
-                                        data-bs-target="#video_animation">
-                                        Video & Animation
-                                    </a>
-                                </li>
+                                {skillsCategories.map((category) => (
+                                    <li className="nav-item" key={category}>
+                                        <a type='button'
+                                            className={`nav-link ${activeCategory === category ? "active" : ""}`}
+                                            onClick={() => setActiveCategory(category)}
+                                        >
+                                            {category}
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
+
                     <div className="tab-content" data-aos="fade-up">
+                        {skillsCategories.map((category) => (
+                            <div
+                                key={category}
+                                className={`tab-pane fade ${activeCategory === category ? "show active" : ""}`}
+                                id={category ? category.replace(/\s+/g, "_").toLowerCase() : "all_skills"}
+                                role="tabpanel"
+                            >
+                                <div className="row">
+                                    {getFilteredSkills(category).length > 0 ? (
+                                        getFilteredSkills(category).map((skill) => (
+                                            <div className="col-xl-4 col-md-6" key={skill.id}>
+                                                <div className="gigs-grid">
+                                                    <div className="gigs-img">
+                                                        <div className="img-slider owl-carousel">
+                                                            <div className="slide-images">
+                                                                <a href={`/skills/category/${skill.slug}`}>
 
-                        <div className="tab-pane fade show active" id="allservices" role="tabpanel">
-                            <div className="row">
-                                {skills.map(skill => (
-                                    <div className="col-xl-4 col-md-6">
-                                        <div className="gigs-grid">
-                                            <div className="gigs-img">
-                                                <div className="img-slider owl-carousel">
-                                                    <div className="slide-images">
-                                                        <a href={`/talent/skills/${skill.id}`}>
-                                                            <img src="assets/img/home/service-01.jpg" className="img-fluid"
-                                                                alt="Gigs" />
-                                                        </a>
-                                                    </div>
-
-                                                </div>
-                                                <div className="card-overlay-badge">
-                                                    <a href="service.html"><span className="badge bg-warning"><i
-                                                        className="feather-star"></i>Featured</span></a>
-                                                    <a href="service.html"><span className="badge bg-danger"><i
-                                                        className="fa-solid fa-meteor"></i>{skill.level}</span></a>
-                                                </div>
-                                                <div className="fav-selection">
-                                                    <a role="button"
-                                                        tabIndex="0">
-                                                        <i className="feather-video"></i>
-                                                    </a>
-                                                    <a role="button"
-                                                        tabIndex="0" className="fav-icon">
-                                                        <i className="feather-heart"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-content">
-                                                <div className="gigs-info">
-                                                    <div>
-                                                        <a href={`/talent/skills/${skill.id}`} className="badge bg-light">
-                                                            {skill.category ? skill.category.name : "Uncategorized"}
-                                                        </a>
-                                                        <span className="ms-2">+1</span>
-                                                    </div>
-                                                    <div className="star-rate">
-                                                        <span><i className="fa-solid fa-star"></i>4.8 (360 Reviews)</span>
-                                                    </div>
-                                                </div>
-                                                <div className="gigs-title">
-                                                    <h5>
-                                                        <a href={`/talent/skills/${skill.id}`}>
-                                                            {skill.name}
-                                                        </a>
-                                                    </h5>
-                                                </div>
-
-                                                <div className="gigs-card-footer">
-                                                    <div className="d-flex align-items-center gigs-left-text">
-                                                        <a href="talent-profile.html"
-                                                            className="avatar avatar-sm flex-shrink-0"><img
-                                                                src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                                alt="img" /></a>
-                                                        <div className="ms-2">
-                                                            <h6 className="mb-0"><a role="button"
-                                                                tabIndex="0">{skill.talent ? skill.talent.name : "Author"}</a></h6>
-                                                            <p className="mb-0">Newyork, USA</p>
+                                                                    <img
+                                                                        src="/assets/img/home/service-01.jpg"
+                                                                        className="img-fluid"
+                                                                        alt="Gigs"
+                                                                    />
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div className="card-overlay-badge">
+                                                            <a href="service.html">
+                                                                <span className="badge bg-warning">
+                                                                    <i className="feather-star"></i>Featured
+                                                                </span>
+                                                            </a>
+                                                            <a href="service.html">
+                                                                <span className="badge bg-danger">
+                                                                    <i className="fa-solid fa-meteor"></i>
+                                                                    {skill.level}
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                        <div className="fav-selection">
+                                                            <a role="button" tabIndex="0">
+                                                                <i className="feather-video"></i>
+                                                            </a>
+                                                            <a role="button" tabIndex="0" className="fav-icon">
+                                                                <i className="feather-heart"></i>
+                                                            </a>
                                                         </div>
                                                     </div>
-                                                    <div className="text-end">
-                                                        <h6 className="mb-1">$645</h6>
-                                                        <span>Delivery in 1 day</span>
+                                                    <div className="gigs-content">
+                                                        <div className="gigs-info">
+                                                            <div>
+                                                                <a href={`/skills/${skill.category?.slug}`} className="badge bg-light">
+                                                                    {skill.category?.name || "Uncategorized"}
+                                                                </a>
+                                                                <span className="ms-2">+1</span>
+                                                            </div>
+                                                            <div className="star-rate">
+                                                                <span>
+                                                                    <i className="fa-solid fa-star"></i>4.8 (360 Reviews)
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="gigs-title">
+                                                            <h5>
+                                                                <a href={`/skills/${skill.slug}`}>{skill.name}</a>
+                                                            </h5>
+                                                        </div>
+                                                        <div className="gigs-card-footer">
+                                                            <div className="d-flex align-items-center gigs-left-text">
+                                                                <a
+                                                                    href="talent-profile.html"
+                                                                    className="avatar avatar-sm flex-shrink-0"
+                                                                >
+                                                                    <img
+                                                                        src="/assets/img/user/profile.jpg"
+                                                                        className="img-fluid rounded-pill"
+                                                                        alt="img"
+                                                                    />
+                                                                </a>
+                                                                <div className="ms-2">
+                                                                    <h6 className="mb-0">
+                                                                        <a role="button" tabIndex="0">
+                                                                            {skill.talent?.name || "Author"}
+                                                                        </a>
+                                                                    </h6>
+                                                                    <p className="mb-0">
+                                                                        {skill.talent?.address || "Rwanda"}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="text-end">
+                                                                <h6 className="mb-1">$645</h6>
+                                                                <span>{skill.tags}</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-
-                        <div className="tab-pane fade" id="writing_translation" role="tabpanel">
-                            <div className="row">
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-02.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-04.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-05.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Programming
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>5.0 (28 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        Embedded Android & AOSP customizations
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Adrian Silvia</a></h6>
-                                                        <p className="mb-0">Newyork, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$645</h6>
-                                                    <span>Delivery in 1 day</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-01.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-07.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-08.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Videography
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>4.3 (22 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will do professional lifestyle and product photography
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Sebastian Vettal</a></h6>
-                                                        <p className="mb-0">Las Vegas, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$830</h6>
-                                                    <span>Delivery in 4 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/home/service-03.jpg" className="img-fluid"
-                                                            alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-10.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/gigs/gigs-11.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Programming & Tech
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>5.0 (36 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        Record Scripts for Advertisements, Audiobooks, Videos, and More.
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Alex Revaria</a></h6>
-                                                        <p className="mb-0">California, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$550</h6>
-                                                    <span>Delivery in 2 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        ))
+                                    ) : (
+                                        <p className="text-center mt-4">No skills found for this category.</p>
+                                    )}
                                 </div>
                             </div>
-                        </div>
-
-
-                        <div className="tab-pane fade" id="ai_services" role="tabpanel">
-                            <div className="row">
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-12.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-07.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-08.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Programming
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>5.0 (28 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will do english or german transcript of any audio file or video
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Adrian Silvia</a></h6>
-                                                        <p className="mb-0">Newyork, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$645</h6>
-                                                    <span>Delivery in 1 day</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-11.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-05.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-06.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Videography
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>4.3 (22 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will do professional lifestyle and product photography
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Sebastian Vettal</a></h6>
-                                                        <p className="mb-0">Las Vegas, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$830</h6>
-                                                    <span>Delivery in 4 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-07.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-03.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-13.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Programming & Tech
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>5.0 (36 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        Record Scripts for Advertisements, Audiobooks, Videos, and More.
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Alex Revaria</a></h6>
-                                                        <p className="mb-0">California, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$550</h6>
-                                                    <span>Delivery in 2 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="tab-pane fade" id="graphics_design" role="tabpanel">
-                            <div className="row">
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-01.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-02.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-03.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Logo Design
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>5.0 (28 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will do professional, unique and modern business logo
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Adrian Silvia</a></h6>
-                                                        <p className="mb-0">Newyork, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$645</h6>
-                                                    <span>Delivery in 1 day</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-02.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-01.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-03.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Vector Graphics
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>4.3 (22 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will design unique, simple and modern custom icons set
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Sebastian Vettal</a></h6>
-                                                        <p className="mb-0">Las Vegas, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$830</h6>
-                                                    <span>Delivery in 4 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-03.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-02.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-01.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Illustration
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>4.6 (475 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will do vector tracing or convert to vector quickly
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Alex Revaria</a></h6>
-                                                        <p className="mb-0">California, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$550</h6>
-                                                    <span>Delivery in 2 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="tab-pane fade" id="data_analysis" role="tabpanel">
-                            <div className="row">
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-03.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-05.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-06.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Data
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>4.3 (22 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will do product data information & syetem analysis
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Adrian Silvia</a></h6>
-                                                        <p className="mb-0">Newyork, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$645</h6>
-                                                    <span>Delivery in 1 day</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-11.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-05.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-06.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Videography
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>4.3 (22 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will do professional lifestyle and product photography
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Sebastian Vettal</a></h6>
-                                                        <p className="mb-0">Las Vegas, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$830</h6>
-                                                    <span>Delivery in 4 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-12.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-07.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-08.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Programming
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>5.0 (28 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        Embedded Android & AOSP customizations
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Alex Revaria</a></h6>
-                                                        <p className="mb-0">California, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$550</h6>
-                                                    <span>Delivery in 2 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="tab-pane fade" id="analytics_strategy" role="tabpanel">
-                            <div className="row">
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-06.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-04.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-10.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Translation
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>3.8 (11 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will do implementing chatbots on websites or messaging apps
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Adrian Silvia</a></h6>
-                                                        <p className="mb-0">Newyork, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$645</h6>
-                                                    <span>Delivery in 1 day</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-04.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-05.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-06.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Videography
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>4.3 (22 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will do professional lifestyle and product photography
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Sebastian Vettal</a></h6>
-                                                        <p className="mb-0">Las Vegas, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$830</h6>
-                                                    <span>Delivery in 4 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-03.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-07.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-08.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Programming
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>5.0 (28 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        Embedded Android & AOSP customizations
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Alex Revaria</a></h6>
-                                                        <p className="mb-0">California, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$550</h6>
-                                                    <span>Delivery in 2 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="tab-pane fade" id="video_animation" role="tabpanel">
-                            <div className="row">
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-07.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-03.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-13.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Music & Audio
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>4.6 (475 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will develop openai, dalle, chat gpt app for mobile
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Adrian Silvia</a></h6>
-                                                        <p className="mb-0">Newyork, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$645</h6>
-                                                    <span>Delivery in 1 day</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-12.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-07.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-08.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Programming
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>5.0 (28 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I will do english or german transcript of any audio file or video
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Sebastian Vettal</a></h6>
-                                                        <p className="mb-0">Las Vegas, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$830</h6>
-                                                    <span>Delivery in 4 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div className="gigs-grid">
-                                        <div className="gigs-img">
-                                            <div className="img-slider owl-carousel">
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-11.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-05.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                                <div className="slide-images">
-                                                    <a href="service-details.html">
-                                                        <img src="assets/img/list/list-06.jpg" className="img-fluid" alt="Gigs" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="card-overlay-badge">
-                                                <a href="service.html"><span className="badge bg-warning"><i
-                                                    className="feather-star"></i>Featured</span></a>
-                                                <a href="service.html"><span className="badge bg-danger"><i
-                                                    className="fa-solid fa-meteor"></i>Hot</span></a>
-                                            </div>
-                                            <div className="fav-selection">
-                                                <a role="button"
-                                                    tabIndex="0">
-                                                    <i className="feather-video"></i>
-                                                </a>
-                                                <a role="button"
-                                                    tabIndex="0" className="fav-icon">
-                                                    <i className="feather-heart"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="gigs-content">
-                                            <div className="gigs-info">
-                                                <div>
-                                                    <a href="service-details.html" className="badge bg-light">
-                                                        Videography
-                                                    </a>
-                                                </div>
-                                                <div className="star-rate">
-                                                    <span><i className="fa-solid fa-star"></i>4.3 (22 Reviews)</span>
-                                                </div>
-                                            </div>
-                                            <div className="gigs-title">
-                                                <h5>
-                                                    <a href="service-details.html">
-                                                        I I will do professional lifestyle and product photographyons
-                                                    </a>
-                                                </h5>
-                                            </div>
-
-                                            <div className="gigs-card-footer">
-                                                <div className="d-flex align-items-center gigs-left-text">
-                                                    <a href="talent-profile.html"
-                                                        className="avatar avatar-sm flex-shrink-0"><img
-                                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill"
-                                                            alt="img" /></a>
-                                                    <div className="ms-2">
-                                                        <h6 className="mb-0"><a role="button"
-                                                            tabIndex="0">Alex Revaria</a></h6>
-                                                        <p className="mb-0">California, USA</p>
-                                                    </div>
-                                                </div>
-                                                <div className="text-end">
-                                                    <h6 className="mb-1">$550</h6>
-                                                    <span>Delivery in 2 Days</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
+                        ))}
                     </div>
+
                     <div className="text-center mt-3" data-aos="fade-up">
-                        <a href="courses.html" className="btn btn-lg btn-dark">View All Skills</a>
+                        <a href="/skills" className="btn btn-lg btn-dark">View All Skills</a>
                     </div>
                 </div>
             </div>
@@ -2132,7 +718,7 @@ const Home = () => {
 
 
             <div className="testimonials-section-two">
-                <img src="assets/img/home/shape-4.svg" alt="img" className="img-fluid testimonials-bg3 d-lg-inline-flex d-none" />
+                <img src="/assets/img/home/shape-4.svg" alt="img" className="img-fluid testimonials-bg3 d-lg-inline-flex d-none" />
                 <div className="container">
                     <div className="row align-items-center row-gap-4">
                         <div className="col-lg-6">
@@ -2144,71 +730,51 @@ const Home = () => {
                             <h6 className="mb-3" data-aos="fade-up">We’re Building a Global Talent Community</h6>
                             <div className="avatar-list-stacked me-2" data-aos="fade-up">
                                 <span className="avatar avatar-md rounded-circle border-0"><img
-                                    src="assets/img/user/profile.jpg"
+                                    src="/assets/img/user/profile.jpg"
                                     className="img-fluid rounded-circle border border-white" alt="Img" /></span>
                                 <span className="avatar avatar-md rounded-circle border-0"><img
-                                    src="assets/img/user/profile.jpg"
+                                    src="/assets/img/user/profile.jpg"
                                     className="img-fluid rounded-circle border border-white" alt="Img" /></span>
                                 <span className="avatar avatar-md rounded-circle border-0"><img
-                                    src="assets/img/user/profile.jpg"
+                                    src="/assets/img/user/profile.jpg"
                                     className="img-fluid rounded-circle border border-white" alt="Img" /></span>
                                 <span className="avatar avatar-md rounded-circle border-0"><img
-                                    src="assets/img/user/profile.jpg"
+                                    src="/assets/img/user/profile.jpg"
                                     className="img-fluid rounded-circle border border-white" alt="Img" /></span>
                                 <span className="avatar avatar-md rounded-circle border-0"><img
-                                    src="assets/img/user/profile.jpg"
+                                    src="/assets/img/user/profile.jpg"
                                     className="img-fluid rounded-circle border border-white" alt="Img" /></span>
                                 <span className="avatar avatar-md rounded-circle border-0"><img
-                                    src="assets/img/user/profile.jpg"
+                                    src="/assets/img/user/profile.jpg"
                                     className="img-fluid rounded-circle border border-white" alt="Img" /></span>
                                 <span className="avatar avatar-md rounded-circle border-0"><img
-                                    src="assets/img/user/profile.jpg"
+                                    src="/assets/img/user/profile.jpg"
                                     className="img-fluid rounded-circle border border-white" alt="Img" /></span>
                             </div>
                         </div>
                         <div className="col-lg-6">
-                            <div className="testimonials-item bg-white rounded" data-aos="fade-up">
-                                <div className="d-flex align-items-center gigs-left-text mb-3">
-                                    <a role="button"
-                                        tabIndex="0" className="avatar avatar-sm flex-shrink-0"><img
-                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill" alt="img" /></a>
-                                    <div className="ms-2">
-                                        <h6 className="mb-0"><a role="button"
-                                            tabIndex="0">Adrian Silvia</a></h6>
-                                        <p className="mb-0">Nairobi, Kenya</p>
+                            {testimonials.map((test) => (
+                                <div className="testimonials-item bg-white rounded mb-0" data-aos="fade-up">
+                                    <div className="d-flex align-items-center gigs-left-text mb-3">
+                                        <a role="button"
+                                            tabIndex="0" className="avatar avatar-sm flex-shrink-0"><img
+                                                src="/assets/img/user/profile.jpg" className="img-fluid rounded-pill" alt="img" /></a>
+                                        <div className="ms-2">
+                                            <h6 className="mb-0"><a role="button"
+                                                tabIndex="0">{test.talent?.name || 'Talent Name'}</a></h6>
+                                            <p className="mb-0">{test.talent?.location || 'Location'}</p>
+                                        </div>
                                     </div>
+                                    <h6 className="mb-1">{test.title}</h6>
+                                    <p className="mb-3">{test.content}</p>
+                                    {[...Array(5)].map((_, i) => (
+                                        <i
+                                            key={i}
+                                            className={`ti ti-star-filled ${i < test.rating ? 'text-warning' : 'text-muted'}`}
+                                        ></i>
+                                    ))}
                                 </div>
-                                <h6 className="mb-1">Empowered Through Storytelling</h6>
-                                <p className="mb-3">Future Connect gave me a platform to share my journey and skills. It helped
-                                    me
-                                    connect with mentors, peers, and even sponsors!</p>
-                                <i className="ti ti-star-filled text-warning"></i>
-                                <i className="ti ti-star-filled text-warning"></i>
-                                <i className="ti ti-star-filled text-warning"></i>
-                                <i className="ti ti-star-filled text-warning"></i>
-                                <i className="ti ti-star-filled text-warning"></i>
-                            </div>
-                            <div className="testimonials-item bg-white rounded mb-0" data-aos="fade-up">
-                                <div className="d-flex align-items-center gigs-left-text mb-3">
-                                    <a role="button"
-                                        tabIndex="0" className="avatar avatar-sm flex-shrink-0"><img
-                                            src="assets/img/user/profile.jpg" className="img-fluid rounded-pill" alt="img" /></a>
-                                    <div className="ms-2">
-                                        <h6 className="mb-0"><a role="button"
-                                            tabIndex="0">James Don</a></h6>
-                                        <p className="mb-0">Accra, Ghana</p>
-                                    </div>
-                                </div>
-                                <h6 className="mb-1">A Platform That Truly Cares</h6>
-                                <p className="mb-3">Sharing my skills on Future Connect opened doors I never imagined. From
-                                    virtual
-                                    gigs to recognition, I feel seen and valued.</p>
-                                <i className="ti ti-star-filled text-warning"></i>
-                                <i className="ti ti-star-filled text-warning"></i>
-                                <i className="ti ti-star-filled text-warning"></i>
-                                <i className="ti ti-star-filled text-warning"></i>
-                                <i className="ti ti-star-filled text-warning"></i>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -2217,19 +783,19 @@ const Home = () => {
 
             <div className="container">
                 <div className="join-with-us">
-                    <img src="assets/img/home/shape-5.svg" alt="img" className="img-fluid join-with-us-bg" />
+                    <img src="/assets/img/home/shape-5.svg" alt="img" className="img-fluid join-with-us-bg" />
                     <div className="d-sm-flex align-items-center justify-content-between">
                         <div data-aos="fade-right">
                             <h2 className="text-white">Join Future Connect</h2>
                             <p className="mb-0">Showcase your talent, share your story, and inspire others. Be part of a
                                 community that empowers growth and recognition.</p>
                         </div>
-                        <a href="upload-story.html" className="btn btn-lg btn-primary flex-shrink-0" data-aos="fade-left">Get
+                        <a href="/upload-story" className="btn btn-lg btn-primary flex-shrink-0" data-aos="fade-left">Get
                             Started</a>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
